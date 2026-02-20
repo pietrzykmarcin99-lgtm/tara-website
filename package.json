@@ -1,0 +1,27 @@
+{
+  "name": "tara-portfolio",
+  "version": "1.0.0",
+  "description": "Personal website for a UX/UI designer",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "portfolio",
+    "ux",
+    "ui",
+    "designer"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "sass": "^1.79.0",
+    "terser": "^5.46.0",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0"
+  }
+}

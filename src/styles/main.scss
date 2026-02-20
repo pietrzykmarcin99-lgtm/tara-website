@@ -1,0 +1,15 @@
+// Main SASS file - imports all other style modules
+
+// Forward variables and mixins to make them available globally
+@forward 'variables';
+@forward 'mixins';
+
+// Import base styles
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'base';
+@use 'components/header';
+@use 'components/footer';
+
+// You can split styles into multiple files and import them here
+// This file will be compiled into a single CSS file

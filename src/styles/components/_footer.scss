@@ -1,0 +1,27 @@
+// Footer component styles
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+  padding: $spacing-lg $spacing-md;
+  background-color: darken($bg-color, 5%);
+  margin-top: $spacing-xl;
+  text-align: center;
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__text {
+    color: lighten($text-color, 20%);
+    font-size: 0.9rem;
+  }
+
+  &__social {
+    margin-top: $spacing-sm;
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,41 @@
+// Header component styles
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+  padding: $spacing-md;
+  background-color: $bg-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    @include flex-center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-md;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+
+  &__link {
+    color: $text-color;
+    @include transition(color);
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

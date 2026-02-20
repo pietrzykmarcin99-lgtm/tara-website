@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UX/UI Designer Portfolio">
+  <title>Portfolio - UX/UI Designer</title>
+  
+  <!-- Vite will automatically inject the compiled CSS here -->
+  <link rel="stylesheet" href="/src/styles/main.scss">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__left">
+        <span>available for work</span>
+      </div>
+
+      <nav class="header__nav">
+        <span class="header__hi">Hi</span>
+          <a href="#about" class="header__link">Work</a>
+          <a href="#portfolio" class="header__link">About</a>
+          <a href="#contact" class="header__link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <section class="me">
+      <img src="/src/assets/me.jpg" alt="Tara Gottschall" class="me__img">
+      <h1>Tara Gottschall</h1>
+      <p>Hi, I’m Tara, a Digital Media Psychologist and aspiring UX & Instructional Designer. 
+I blend psychology and creativity to design smart and human-centered experiences. </p>
+    </section>
+    
+    <section class="recent-work">
+      <h2>Recent work</h2>
+      <div class="slider">
+        <img src="/src/assets/arrow-left.svg" alt="Previous" class="slider__arrow slider__arrow--left">
+        <img src="/src/assets/arrow-right.svg" alt="Next" class="slider__arrow slider__arrow--right">
+        <div class="slider__track">
+          <div class="slider__item">
+            <img src="/src/assets/work1.jpg" alt="Work 1" class="slider__image">
+            <h3 class="slider__title">Project Title 1</h3>
+            <p class="slider__description">Brief description of the project.</p>
+          </div>
+          <div class="slider__item">
+            <img src="/src/assets/work2.jpg" alt="Work 2" class="slider__image">
+            <h3 class="slider__title">Project Title 2</h3>
+            <p class="slider__description">Brief description of the project.</p>
+          </div>
+          <div class="slider__item">
+            <img src="/src/assets/work3.jpg" alt="Work 3" class="slider__image">
+            <h3 class="slider__title">Project Title 3</h3>
+            <p class="slider__description">Brief description of the project.</p>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__content">
+      <p class="footer__text">&copy; 2026 UX/UI Designer Portfolio</p>
+      <div class="footer__social">
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#" class="footer__link">Behance</a>
+        <a href="#" class="footer__link">Dribbble</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vite will automatically inject the compiled TypeScript here -->
+  <script type="module" src="/src/scripts/main.ts"></script>
+</body>
+</html>
