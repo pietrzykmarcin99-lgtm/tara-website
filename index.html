@@ -17,7 +17,8 @@
         <span>available for work</span>
       </div>
 
-      <nav class="header__nav">
+      <button class="header__open-menu mobile-only">Menu</button>
+      <nav class="header__nav desktop-only">
         <span class="header__hi">Hi</span>
           <a href="#about" class="header__link">Work</a>
           <a href="#portfolio" class="header__link">About</a>
@@ -38,40 +39,191 @@ I blend psychology and creativity to design smart and human-centered experiences
     
     <section class="recent-work">
       <h2>Recent work</h2>
-      <div class="slider">
+
+      <div class="slider desktop-only">
         <img src="/src/assets/arrow-left.svg" alt="Previous" class="slider__arrow slider__arrow--left">
         <img src="/src/assets/arrow-right.svg" alt="Next" class="slider__arrow slider__arrow--right">
         <div class="slider__track">
           <div class="slider__item">
-            <img src="/src/assets/work1.jpg" alt="Work 1" class="slider__image">
-            <h3 class="slider__title">Project Title 1</h3>
-            <p class="slider__description">Brief description of the project.</p>
+            <img src="/src/assets/work1.jpg" alt="Work 1">
+            <div class="slider__modal">
+              <img src="/src/assets/work1.jpg" alt="Work 1">
+              <h3>Smart Fridge Meal Plan</h3>
+              <p>Upload a photo of your fridge, choose your dietary preferences and your cooking skill level and this app will generate a personalised weekly meal plan for you including your grocery list.</p>
+              <button class="btn btn--pink">have a look!</button>
+            </div>
           </div>
           <div class="slider__item">
-            <img src="/src/assets/work2.jpg" alt="Work 2" class="slider__image">
-            <h3 class="slider__title">Project Title 2</h3>
-            <p class="slider__description">Brief description of the project.</p>
+            <img src="/src/assets/work2.jpg" alt="Work 2">
+            <div class="slider__modal">
+              <img src="/src/assets/work2.jpg" alt="Work 2">
+              <small>2025</small>
+              <h3>Learning Interface of Robot Pepper </h3>
+              <p>Designing the a robot tutor’s learning interface for a study on social robots in learning contexts.</p>
+              <button class="btn btn--violet">have a look!</button>
+            </div>
           </div>
           <div class="slider__item">
-            <img src="/src/assets/work3.jpg" alt="Work 3" class="slider__image">
-            <h3 class="slider__title">Project Title 3</h3>
-            <p class="slider__description">Brief description of the project.</p>
+            <img src="/src/assets/work3.jpg" alt="Work 3">
+            <div class="slider__modal">
+              <img src="/src/assets/work3.jpg" alt="Work 3">
+              <small>2025</small>
+              <h3>Vinted Reinvented</h3>
+              <p>The popular second-hand app Vinted reimagined for a more efficient, fun and user-friendly experience.</p>
+              <button class="btn btn--teal">have a look!</button>
+            </div>
           </div>
+          <div class="slider__item">
+            <img src="/src/assets/work4.jpg" alt="Work 4">
+            <div class="slider__modal">
+              <img src="/src/assets/work4.jpg" alt="Work 4">
+              <h3>Magical Cooking Adventure</h3>
+              <p>With just a few clicks, children can generate a personalized cooking adventure story starring themselves and their magic animal, with age-appropriate recipes to cook alongside an adult.</p>
+              <button class="btn btn--green">have a look!</button>
+            </div>
+          </div>
+          <div class="slider__item">
+            <img src="/src/assets/work5.jpg" alt="Work 5">
+            <div class="slider__modal">
+              <small>2025</small>
+              <img src="/src/assets/work5.jpg" alt="Work 5">
+              <h3>E-Learning Course</h3>
+              <p>An e-learning course about sleep and dreams, as part of my master’s thesis “Usability as an emotional design factor - Is good usability of learning interfaces essential for learning?”</p>
+              <button class="btn btn--orange">have a look!</button>
+            </div>
+          </div>
+      </div>
+
+      <div class="recent-work__tiles mobile-only">
+        <a class="recent-work__tile" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="" alt="">
+          <div class="recent-work__texts">
+            <h3>Smart Fridge Meal Plan</h3>
+            <p>Upload a photo of your fridge, choose your dietary preferences and your cooking skill level and this app will generate a personalised weekly meal plan for you including your grocery list.</p>
+          </div>
+        </a>
+  
+        <a class="recent-work__tile" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="" alt="">
+          <div class="recent-work__texts">
+            <h3>Learning Interface of Robot Pepper </h3>
+            <p>Designing the a robot tutor’s learning interface for a study on social robots in learning contexts.</p>
+          </div>
+        </a>
+  
+        <a class="recent-work__tile" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="" alt="">
+          <div class="recent-work__texts">
+            <h3>Vinted Reinvented</h3>
+            <p>The popular second-hand app Vinted reimagined for a more efficient, fun and user-friendly experience.</p>
+          </div>
+        </a>
+  
+        <a class="recent-work__tile" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="" alt="">
+          <div class="recent-work__texts">
+            <h3>Magical Cooking Adventure</h3>
+            <p>With just a few clicks, children can generate a personalized cooking adventure story starring themselves and their magic animal, with age-appropriate recipes to cook alongside an adult.</p>
+          </div>
+        </a>
+  
+        <a class="recent-work__tile" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="" alt="">
+          <div class="recent-work__texts">
+            <h3>E-Learning Course</h3>
+            <p>An e-learning course about sleep and dreams, as part of my master’s thesis “Usability as an emotional design factor - Is good usability of learning interfaces essential for learning?”</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="this-is-me">
+      <h2>This is me</h2>
+      <div class="this-is-me__mind-map">
+        <div class="this-is-me__mind-map-options">
+          <div class="this-is-me__mind-map-option">
+            <img src="" alt="">
+            <div class="this-is-me__modal">
+              <div class="this-is-me__modal-content">
+                <img src="" alt="">
+                <h3>Teaching</h3>
+                <p>Teaching & guidance in adult psychiatric, kindergarten, and youth groups.</p>
+              </div>
+            </div>
+          </div>
+          <div class="this-is-me__mind-map-option">
+            <img src="" alt="">
+            <div class="this-is-me__modal this-is-me__modal-3col">
+              <a href=""><img src="" alt=""></a>
+              <div class="this-is-me__modal-content">
+                <img src="" alt="">
+                <h3>Art & Design</h3>
+                <p>Seven years of private art training under a freelance artist, 
+commissioned and personal projects across various mediums.</p>
+              </div>
+              <a href=""><img src="" alt=""></a>
+            </div>
+          </div>
+          <div class="this-is-me__mind-map-option">
+            <img src="" alt="">
+            <div class="this-is-me__modal">
+              <div class="this-is-me__modal-content">
+                <img src="" alt="">
+                <h3>Psychology</h3>
+                <p>B.Sc. Psychology
+                M.Sc. Psychology of 
+                Digital Media.</p>
+              </div>
+            </div>
+          </div>
+          <div class="this-is-me__mind-map-option">
+            <img src="" alt="">
+            <div class="this-is-me__modal">
+              <div class="this-is-me__modal-content">
+                <img src="" alt="">
+                <h3>International Experience</h3>
+                <p>Studied, lived, and worked across time zones and cultures, developing cross-cultural communication and global perspectives.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="this-is-me__me">
+            <div class="this-is-me__me-img-container">
+              <img src="/src/assets/me-animated.jpg" alt="Tara Gottschall">
+              <img src="/src/assets/me-real.jpg" alt="Tara Gottschall">
+            </div>
+            <div class="this-is-me__modal">
+              <div class="this-is-me__modal-content">
+                <img src="" alt="">
+                <h3>Tara</h3>
+                <p>Born in East Germany and raised in Berlin.
+When I’m not working, you will find me playing volleyball or doing art.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lets-connect">
+      <h2>Let’s connect!</h2>
+
+      <a href="mailto:" class="lets-connect__main-button">
+        Connect
+      </a>
+
+      <div class="lets-connect__small-sm">
+        <a href="mailto:your-email@example.com">
+          <img src="" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+          <img src="" alt="">
+        </a>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer__content">
-      <p class="footer__text">&copy; 2026 UX/UI Designer Portfolio</p>
-      <div class="footer__social">
-        <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Behance</a>
-        <a href="#" class="footer__link">Dribbble</a>
-      </div>
-    </div>
-  </footer>
+
 
   <!-- Vite will automatically inject the compiled TypeScript here -->
   <script type="module" src="/src/scripts/main.ts"></script>
