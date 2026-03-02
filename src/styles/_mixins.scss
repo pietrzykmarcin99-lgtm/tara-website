@@ -15,14 +15,8 @@
   }
 }
 
-@mixin tablet {
-  @media (min-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet) {
-    @content;
-  }
-}
-
 @mixin desktop {
-  @media (min-width: $breakpoint-tablet + 1) {
+  @media (min-width: ($breakpoint-mobile + 1)) {
     @content;
   }
 }
@@ -32,4 +26,16 @@
   transition-property: $properties;
   transition-duration: $transition-normal;
   transition-timing-function: ease;
+}
+
+@function rem($px) {
+  @return ($px / $font-size-base) * 1rem;
+}
+
+@mixin font-size($size, $weight, $line-height: null) {
+  font-size: rem($size);
+  font-weight: $weight;
+  @if $line-height != null {
+    line-height: $line-height;
+  }
 }

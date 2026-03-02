@@ -3,39 +3,133 @@
 @use '../mixins' as *;
 
 .header {
-  padding: $spacing-md;
-  background-color: $bg-color;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
 
   &__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    @include flex-center;
+    padding: 62px 113px 62px 76px;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
-  &__logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: $primary-color;
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 15px 40px 15px 27px;
+    border: 1px solid $line-gray-color;
+    border-radius: 45px;
+    background-color: $bg-color;
+
+    @include font-size(rem(20px), 400);
+  }
+
+  &__pulsating-dot {
+    display: flex;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: $light-green-color;
+      transform: translate(-50%, -50%);
+      animation: pulse 4s infinite ease-in-out;
+    }
   }
 
   &__nav {
+    padding: 18px 30px;
+    border: 1px solid $line-gray-color;
+    border-radius: 45px;
     display: flex;
-    gap: $spacing-md;
-
-    @include mobile {
-      flex-direction: column;
-      gap: $spacing-sm;
-    }
+    align-items: center;
+    justify-content: center;
+    gap: 77px;
+    background-color: $bg-color;
   }
 
   &__link {
-    color: $text-color;
-    @include transition(color);
+    position: relative;
+    color: $text-color-gray;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    
+    @include flex-center;
+    @include font-size(rem(28px), 400);
+
+    display: grid;
+    place-items: center;
+
+    > span {
+      grid-area: 1 / 1;
+    }
+
+    &::after {
+      content: attr(data-text);
+      grid-area: 1 / 1;
+      font-weight: 700;
+      visibility: hidden;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    &--selected {
+      font-weight: 700;
+      color: $text-color;
+    }
 
     &:hover {
-      color: $primary-color;
+      color: $text-color;
     }
+
+    > svg {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      transform-origin: center;
+    }
+
+    &--hi {
+      svg {
+        transform: translateX(2px);
+      }
+    }
+
+    &--work {
+      svg {
+        transform: translate(-2px, -2px);
+      }
+    }
+
+    &--about {
+      svg {
+        transform: translate(2px, 3px);
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }

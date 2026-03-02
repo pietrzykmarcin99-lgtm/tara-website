@@ -1,29 +1,32 @@
 // SASS Variables
 // Colors
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-$text-color: #333;
-$bg-color: #ffffff;
-$accent-color: #e74c3c;
+// $primary-color: #3498db;
+// $secondary-color: #2ecc71;
+$text-color: #222;
+$text-color-gray: #666666;
+$bg-color: #fff;
+$line-gray-color: #DCD6D6;
+$light-green-color: #6EC183A8;
+// $accent-color: #e74c3c;
 
 // Typography
-$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-family-base: "Lexend", sans-serif;
 $font-size-base: 16px;
-$line-height-base: 1.6;
+$line-height-base: 1;
 
-// Spacing
-$spacing-xs: 0.5rem;
-$spacing-sm: 1rem;
-$spacing-md: 2rem;
-$spacing-lg: 3rem;
-$spacing-xl: 4rem;
+// // Spacing
+// $spacing-xs: 0.5rem;
+// $spacing-sm: 1rem;
+// $spacing-md: 2rem;
+// $spacing-lg: 3rem;
+// $spacing-xl: 4rem;
 
-// Breakpoints
-$breakpoint-mobile: 768px;
-$breakpoint-tablet: 1024px;
-$breakpoint-desktop: 1440px;
+// // Breakpoints
+$breakpoint-mobile: 1024px;
+// $breakpoint-tablet: 1024px;
+// $breakpoint-desktop: 1440px;
 
-// Transitions
-$transition-fast: 0.2s ease;
-$transition-normal: 0.3s ease;
-$transition-slow: 0.5s ease;
+// // Transitions
+// $transition-fast: 0.2s ease;
+// $transition-normal: 0.3s ease;
+// $transition-slow: 0.5s ease;

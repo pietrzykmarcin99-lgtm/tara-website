@@ -15,9 +15,9 @@ function handleNavClick(event: Event): void {
   const target = event.currentTarget as HTMLElement;
   log(`Navigation clicked: ${target.textContent}`);
   
-  // Add active state
+  // Add selected state
   document.querySelectorAll('.header__link').forEach((link) => {
-    link.classList.remove('active');
+    link.classList.remove('header__link--selected');
   });
-  target.classList.add('active');
+  target.classList.add('header__link--selected');
 }

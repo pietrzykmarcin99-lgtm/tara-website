@@ -1,4 +1,5 @@
 // Animations module
+import { initHeaderHiNavigationAnimation } from './animations/navigation';
 import { log } from '../utils/logger';
 
 export function initAnimations(): void {
@@ -22,4 +23,6 @@ export function initAnimations(): void {
   // Observe all elements with animate class
   const animatedElements = document.querySelectorAll('.animate');
   animatedElements.forEach((el) => observer.observe(el));
+
+  initHeaderHiNavigationAnimation();
 }
