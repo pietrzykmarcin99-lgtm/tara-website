@@ -5,6 +5,7 @@
 .header {
   position: sticky;
   top: 0;
+  z-index: 200;
 
   &__container {
     padding: 62px 113px 62px 76px;
