@@ -1,4 +1,5 @@
 // Navigation module
+import { initMiniMenuAnimation } from './animations/minimenu';
 import { log } from '../utils/logger';
 
 export function initNavigation(): void {
@@ -9,6 +10,8 @@ export function initNavigation(): void {
   navLinks.forEach((link) => {
     link.addEventListener('click', handleNavClick);
   });
+
+  initMiniMenuAnimation();
 }
 
 function handleNavClick(event: Event): void {
@@ -21,3 +24,4 @@ function handleNavClick(event: Event): void {
   });
   target.classList.add('header__link--selected');
 }
+

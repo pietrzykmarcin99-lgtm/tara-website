@@ -39,3 +39,11 @@
     line-height: $line-height;
   }
 }
+
+@mixin roundBox {
+  border: 1px solid $line-gray-color;
+  border-radius: 45px;
+  background-color: $bg-color;
+
+  @include font-size(rem(20px), 400);
+}

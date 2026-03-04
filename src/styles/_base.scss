@@ -33,11 +33,19 @@ img {
   display: block;
 }
 
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
 .mobile-only {
-  @include mobile {
-    display: block;
-  }
   @include desktop {
-    display: none;
+    display: none!important;
+  }
+}
+
+.desktop-only {
+  @include mobile {
+    display: none!important;
   }
 }
