@@ -1,0 +1,39 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.me {
+  padding: 40px 150px 270px;
+  display: flex;
+  align-items: flex-end;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+
+  &__texts {
+    max-width: 700px;
+  }
+
+  &__decor-arrow-desktop {
+    position: absolute;
+    right: 90px;
+    bottom: -90px;
+  }
+  
+  h1 {
+    margin-bottom: 14px;
+    @include font-size(rem(88px), 500);
+  }
+
+  p {
+    @include font-size(rem(32px), 300, 1.1);
+  }
+}
+
+// .svgtest path {
+//   // stroke: #0ae448;
+//   stroke: #FFAD15;
+//   fill: none;
+//   stroke-width: 2px;
+//   width: 800px;
+// }

@@ -1,6 +1,8 @@
 // Animations module
 import { initHeaderHiNavigationAnimation } from './animations/navigation';
 import { log } from '../utils/logger';
+import { initInViewAnimation } from './animations/in-view';
+import { initDecors } from './animations/decors';
 
 export function initAnimations(): void {
   log('Initializing animations...');
@@ -25,4 +27,6 @@ export function initAnimations(): void {
   animatedElements.forEach((el) => observer.observe(el));
 
   initHeaderHiNavigationAnimation();
+  initInViewAnimation();
+  initDecors();
 }
