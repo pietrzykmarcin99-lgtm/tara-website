@@ -1,6 +1,7 @@
 // Main TypeScript entry point
 import { initNavigation } from './modules/navigation';
 import { initAnimations } from './modules/animations';
+import { initSlider } from './modules/slider';
 import { log } from './utils/logger';
 
 // Initialize the application
