@@ -1,0 +1,10 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.this-is-me {
+  padding: 160px 100px 30px;
+
+  h2 {
+    margin: 0 0 47px;
+  }
+}

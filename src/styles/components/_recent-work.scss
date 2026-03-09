@@ -2,9 +2,4 @@
 @use '../mixins' as *;
 
 .recent-work {
-  h2 {
-    @include font-size(rem(69px), 400);
-    margin-bottom: 42px;
-    text-align: center;
-  }
 }

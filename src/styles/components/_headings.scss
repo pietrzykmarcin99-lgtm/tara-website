@@ -1,0 +1,8 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+h2.common-heading {
+  @include font-size(rem(69px), 400);
+  margin-bottom: 42px;
+  text-align: center;
+}
