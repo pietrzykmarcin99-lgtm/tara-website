@@ -11,6 +11,7 @@ function init(): void {
   // Initialize modules
   initNavigation();
   initAnimations();
+  initSlider();
   
   log('Portfolio website initialized successfully!');
 }

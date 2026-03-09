@@ -3,6 +3,7 @@ import { initHeaderHiNavigationAnimation } from './animations/navigation';
 import { log } from '../utils/logger';
 import { initInViewAnimation } from './animations/in-view';
 import { initDecors } from './animations/decors';
+import { initButtonDecors } from './animations/btn-decors';
 
 export function initAnimations(): void {
   log('Initializing animations...');
@@ -29,4 +30,5 @@ export function initAnimations(): void {
   initHeaderHiNavigationAnimation();
   initInViewAnimation();
   initDecors();
+  initButtonDecors();
 }

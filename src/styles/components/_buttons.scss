@@ -1,0 +1,83 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.btn {
+  border: none;
+  padding: 6px 30px;
+  border-radius: 30px;
+  @include font-size(rem(20px), 500);
+  color: $color-white;
+  box-shadow: 1px 3px 4px 0 rgba(0, 0, 0, 0.19);
+  transition: background-color 0.3s ease;
+  position: relative;
+
+  &--pink {
+    background-color: $color-pink-light;
+
+    &:hover {
+      background-color: $color-pink;
+    }
+
+    svg.threelines {
+      fill: $color-pink;
+    }
+  }
+
+  &--violet {
+    background-color: $color-violet-light;
+
+    &:hover {
+      background-color: $color-violet;
+    }
+
+    svg.threelines {
+      fill: $color-violet;
+    }
+  }
+
+  &--teal {
+    background-color: $color-teal-light;
+
+    &:hover {
+      background-color: $color-teal;
+    }
+    svg.threelines {
+      fill: $color-teal;
+    }
+  }
+
+  &--orange {
+    background-color: $color-orange-light;
+
+    &:hover {
+      background-color: $color-orange;
+    }
+    svg.threelines {
+      fill: $color-orange;
+    }
+  }
+
+  &--green {
+    background-color: $color-green-light;
+
+    &:hover {
+      background-color: $color-green;
+    }
+    svg.threelines {
+      fill: $color-green;
+    }
+  }
+
+  svg.threelines {
+    position: absolute;
+    top: calc(50% - 20px);
+    z-index: -1;
+
+    &:nth-child(1) {
+      left: -20px;
+    }
+    &:nth-child(2) {
+      right: -20px;
+    }
+  }
+}
