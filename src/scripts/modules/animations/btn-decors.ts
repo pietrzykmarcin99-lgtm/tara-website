@@ -2,8 +2,8 @@
 import gsap from 'gsap';
 
 export function initButtonDecors(): void {
-	const buttons = document.querySelectorAll<HTMLButtonElement>('.recent-work .slider__modal button');
-
+	const buttons = document.querySelectorAll<HTMLButtonElement>('.slider__modal button');
+console.log('Initializing button decor animations for', buttons.length, 'buttons');
 	buttons.forEach((button) => {
 		if (button.dataset.decorAnimationInitialized === 'true') {
 			return;
@@ -49,6 +49,7 @@ export function initButtonDecors(): void {
     });
 
 		button.addEventListener('mouseenter', () => {
+      console.log('Mouse entered button, playing animations');
 			svgAnimationLeft.play();
       svgAnimationRight.play();
 		});

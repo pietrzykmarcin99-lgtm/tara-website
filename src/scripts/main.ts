@@ -10,8 +10,8 @@ function init(): void {
   
   // Initialize modules
   initNavigation();
-  initAnimations();
   initSlider();
+  initAnimations();
   
   log('Portfolio website initialized successfully!');
 }

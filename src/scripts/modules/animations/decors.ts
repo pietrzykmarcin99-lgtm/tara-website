@@ -43,7 +43,4 @@ export function initDecors(): void {
     duration: 0.1,
     ease: 'power1.inOut'
   });
-
-  // window.addEventListener('scroll', createScrollAnimation, { once: true, passive: true });
-
 }

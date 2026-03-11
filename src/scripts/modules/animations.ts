@@ -4,6 +4,7 @@ import { log } from '../utils/logger';
 import { initInViewAnimation } from './animations/in-view';
 import { initDecors } from './animations/decors';
 import { initButtonDecors } from './animations/btn-decors';
+import { initThisIsMeAnimations } from './animations/this-is-me';
 
 export function initAnimations(): void {
   log('Initializing animations...');
@@ -31,4 +32,5 @@ export function initAnimations(): void {
   initInViewAnimation();
   initDecors();
   initButtonDecors();
+  initThisIsMeAnimations();
 }

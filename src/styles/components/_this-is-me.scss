@@ -5,6 +5,190 @@
   padding: 160px 100px 30px;
 
   h2 {
-    margin: 0 0 47px;
+    margin: 0;
+  }
+
+  &__svg-arrow {
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &__mind-map {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 281px 20px 30px;
+
+    &-options {
+      position: relative;
+    }
+
+    &-option {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+
+      button, svg:not(.this-is-me__svg-image) {
+          position: absolute;
+      }
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 0.5;
+
+          & ~ .this-is-me__svg-arrow {
+            transform: scale(1.2);
+            opacity: 0.5;
+          }
+        }
+      }
+
+      &:nth-child(1) {
+
+        button {
+          transform-origin: bottom right;
+          
+          &:hover {
+            transform: scale(1.2) rotate(-10deg);
+          }
+          ~ .this-is-me__svg-arrow {
+            transform-origin: bottom right;
+          }
+        }
+
+        button {
+          top: -94px;
+          right: calc(100% + 80px);
+        }
+
+        .this-is-me__svg-arrow {
+          left: -50px;
+          top: 7px;
+        }
+      }
+
+      &:nth-child(2) {
+
+        button {
+          transform-origin: bottom right;
+
+          &:hover {
+            transform: scale(1.2) rotate(-10deg);
+          }
+          ~ .this-is-me__svg-arrow {
+            transform-origin: bottom right;
+          }
+        }
+
+
+        button {
+          bottom: calc(100% + 105px);
+          left: -74px;
+        }
+
+        .this-is-me__svg-arrow {
+          left: 77px;
+          bottom: 100%;
+        }
+      }
+
+      &:nth-child(3) {
+        button {
+          transform-origin: bottom left;
+
+          &:hover {
+            transform: scale(1.2) rotate(10deg);
+          }
+          ~ .this-is-me__svg-arrow {
+            transform-origin: bottom left;
+          }
+        }
+        button {
+          bottom: calc(100% + 83px);
+          left: calc(100% + 16px);
+        }
+
+        .this-is-me__svg-arrow {
+          bottom: calc(100% + 10px);
+          right: 14px;
+        }
+      }
+
+      &:nth-child(4) {
+        button {
+          transform-origin: bottom left;
+
+          &:hover {
+            transform: scale(1.2) rotate(10deg);
+          }
+          ~ .this-is-me__svg-arrow {
+            transform-origin: bottom left;
+          }
+        }
+        button {
+          top: -10px;
+          left: calc(100% + 152px);
+        }
+
+        .this-is-me__svg-arrow {
+          top: 22px;
+          left: calc(100% - 50px);
+        }
+      }
+    }
+  }
+
+  &__me {
+    &-img-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 454px;
+      width: 380px;
+      position: relative;
+      border: none;
+      background: none;
+
+      &:hover {
+        .this-is-me__me-img--real {
+          opacity: 1;
+        }
+
+        .this-is-me__me-img--drawing {
+          opacity: 0;
+        }
+      } 
+    }
+    &-img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+      transition: all 0.3s ease-in-out;
+
+      &--real {
+        opacity: 0;
+        margin-right: -40px;
+      }
+
+      &--drawing {
+        opacity: 1;
+      }
+    }
   }
 }
