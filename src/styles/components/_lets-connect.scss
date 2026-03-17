@@ -1,0 +1,169 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.lets-connect {
+  padding: 210px 100px 200px;
+  text-align: center;
+
+  h2 {
+    margin: 0 0 130px;
+  }
+
+  &__main-button {
+    padding: 70px 130px;
+    background-color: $color-orange2;
+    color: $color-white;
+    text-transform: uppercase;
+    border-radius: 145px;
+    text-decoration: none;
+    display: inline-block;
+    z-index: 200;
+    position: relative;
+    letter-spacing: 8px;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    border: none;
+
+    @include font-size(rem(69px), 700);
+
+    &-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      outline: none;
+      margin: 0 0 135px;
+
+
+      &:hover {
+        .lets-connect__main-button, .lets-connect__main-button-round-vector {
+          transform: rotate(-3deg);
+        }
+
+        .lets-connect__main-button {
+          background-color: $color-orange2-dark;
+        }
+
+        .lets-connect__main-button-decor1, .lets-connect__main-button-decor2, .lets-connect__main-button-round-vector {
+          path {
+            fill: $color-orange2-dark;
+          }
+        }
+
+        .lets-connect__main-button-decor1 {
+          svg {
+            &:nth-child(1) {
+              transform: scale(1.3) rotate(8deg);
+            }
+            &:nth-child(2), &:nth-child(3)  { 
+              transform: scale(1.3) rotate(-3deg);
+            }
+          }
+        }
+
+        .lets-connect__main-button-decor2 {
+          svg {
+            &:nth-child(1) {
+              transform: scale(1.3) rotate(-8deg);
+            }
+            &:nth-child(2)  { 
+              transform: scale(1.1) rotate(-3deg);
+            }
+            &:nth-child(3)  { 
+              transform: scale(1.2) rotate(3deg);
+            }
+          }
+        }
+      }
+    }
+
+    &-decor1 {
+      width: 100%;
+      height: 100%;
+
+      svg {
+        position: absolute;
+
+        &:nth-child(1) {
+          top: 8px;
+          right: calc(50% + 320px + 97px);
+          transform-origin: center;
+        }
+        &:nth-child(2) {
+          top: 94px;
+          right: calc(50% + 320px + 78px);
+          transform-origin: right calc(50% - 90px);
+        }
+        &:nth-child(3) {
+          top: 183px;
+          right: calc(50% + 320px + 75px);
+          transform-origin: right calc(50% - 90px);
+        }
+      }
+    }
+
+    &-decor2 {
+      width: 100%;
+      height: 100%;
+
+      svg {
+        position: absolute;
+
+        &:nth-child(1) {
+          top: -8px;
+          left: calc(50% + 330px + 106px);
+          transform-origin: left calc(50% - -120px);
+        }
+        &:nth-child(2) {
+          top: 98px;
+          left: calc(50% + 330px + 88px);
+          transform-origin: left calc(50% + 210px);
+        }
+        &:nth-child(3) {
+          top: 197px;
+          left: calc(50% + 330px + 90px);
+          transform-origin: left 120px;
+        }
+      }
+    }
+
+    &-decor1, &-decor2, &-round-vector {
+      position: absolute;
+      z-index: 100;
+      z-index: 100;
+      z-index: 100;
+
+      transition: all 0.3s ease-in-out;
+
+      svg, path {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  &__small-sm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 0 100px;
+
+    svg {
+      height: 88px;
+      width: 88px;
+      fill: $color-white;
+
+      g path {
+        fill: $color-white;
+        transition: background-color 0.2s ease-in-out, fill 0.2s ease-in-out;
+      }
+    }
+
+    > a:hover {
+      svg g path{
+        fill: $color-blue-light;
+      }
+    }
+  }
+}
