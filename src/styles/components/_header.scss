@@ -156,6 +156,7 @@
     transition: all 0.3s ease-in-out;
     display: grid;
     place-items: center;
+    cursor: pointer;
     
     @include font-size(rem(28px), 400);
 
