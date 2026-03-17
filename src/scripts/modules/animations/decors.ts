@@ -24,23 +24,25 @@ export function initDecors(): void {
   gsap.timeline({
     scrollTrigger: {
       trigger: svg,
-      start: 'bottom 100%',
-      once: true
+      start: 'bottom bottom',
+      end: 'top top+=300px',
+      scrub: 1,
+      invalidateOnRefresh: true
     }
   })
   .to(maskLine, {
     drawSVG: '0% 100%',
     duration: 1,
-    ease: 'power1.inOut'
+    ease: 'none'
   })
   .to(maskLine2, {
     drawSVG: '0% 100%',
     duration: 0.1,
-    ease: 'power1.inOut'
+    ease: 'none'
   })
   .to(maskLine3, {
     drawSVG: '0% 100%',
     duration: 0.1,
-    ease: 'power1.inOut'
+    ease: 'none'
   });
 }
