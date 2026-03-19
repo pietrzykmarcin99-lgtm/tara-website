@@ -43,6 +43,10 @@ export function initSlider() {
 
 	let currentIndex = cloneCount + (initialOriginalIndex >= 0 ? initialOriginalIndex : 0);
 	let isAnimating = false;
+	let lastHorizontalWheelAt = 0;
+	let hasMovedInCurrentWheelBurst = false;
+	const wheelBurstGapMs = 160;
+	const wheelDeltaNoiseThreshold = 4;
 
 	const getTranslateOffset = (): number => {
 		const activeItem = sliderItems[currentIndex];
@@ -64,25 +68,70 @@ export function initSlider() {
 		track.style.transform = `translateX(-${getTranslateOffset()}px)`;
 	};
 
-	prevButton.addEventListener('click', () => {
+	const moveToPrevious = (): boolean => {
 		if (isAnimating) {
-			return;
+			return false;
 		}
 
 		isAnimating = true;
 		currentIndex -= 1;
 		updateSliderPosition();
-	});
+		return true;
+	};
 
-	nextButton.addEventListener('click', () => {
+	const moveToNext = (): boolean => {
 		if (isAnimating) {
-			return;
+			return false;
 		}
 
 		isAnimating = true;
 		currentIndex += 1;
 		updateSliderPosition();
+		return true;
+	};
+
+	prevButton.addEventListener('click', () => {
+		moveToPrevious();
 	});
+
+	nextButton.addEventListener('click', () => {
+		moveToNext();
+	});
+
+	slider.addEventListener(
+		'wheel',
+		(event) => {
+			const isHorizontalGesture = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+
+			if (!isHorizontalGesture) {
+				return;
+			}
+
+			if (Math.abs(event.deltaX) < wheelDeltaNoiseThreshold) {
+				return;
+			}
+
+			const now = performance.now();
+
+			if (now - lastHorizontalWheelAt > wheelBurstGapMs) {
+				hasMovedInCurrentWheelBurst = false;
+			}
+
+			lastHorizontalWheelAt = now;
+			event.preventDefault();
+
+			if (hasMovedInCurrentWheelBurst) {
+				return;
+			}
+
+			const moved = event.deltaX > 0 ? moveToNext() : moveToPrevious();
+
+			if (moved) {
+				hasMovedInCurrentWheelBurst = true;
+			}
+		},
+		{ passive: false }
+	);
 
 	track.addEventListener('transitionend', () => {
 		if (currentIndex < cloneCount) {
