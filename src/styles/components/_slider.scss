@@ -136,7 +136,7 @@
   &__modal-texts {
     position: relative;
     width: min(350px, 88vw);
-    padding: 52px 24px 24px;
+    padding: 0;
 
     > img {
       width: 100%;
@@ -145,13 +145,18 @@
     }
 
     h3 {
-      @include font-size(rem(30px), 400);
-      margin-bottom: 6px;
+      @include font-size(rem(30px), 400, 110%);
+      margin-bottom: 16px;
+      margin-right: 20px;
     }
 
     p {
-      @include font-size(rem(20px), 300);
-      margin-bottom: 18px;
+      @include font-size(rem(20px), 300, 110%);
+      margin-bottom: 22px;
+
+      strong {
+        font-weight: 500;
+      }
     }
 
     small {
