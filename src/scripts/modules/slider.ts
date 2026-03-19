@@ -43,10 +43,10 @@ export function initSlider() {
 
 	let currentIndex = cloneCount + (initialOriginalIndex >= 0 ? initialOriginalIndex : 0);
 	let isAnimating = false;
-	let lastHorizontalWheelAt = 0;
-	let hasMovedInCurrentWheelBurst = false;
-	const wheelBurstGapMs = 160;
-	const wheelDeltaNoiseThreshold = 4;
+	let wheelLocked = false;
+	let wheelUnlockTimer: ReturnType<typeof setTimeout> | null = null;
+	const wheelUnlockDelayMs = 700;
+	const wheelTriggerThreshold = 18;
 
 	const getTranslateOffset = (): number => {
 		const activeItem = sliderItems[currentIndex];
@@ -101,33 +101,35 @@ export function initSlider() {
 	slider.addEventListener(
 		'wheel',
 		(event) => {
-			const isHorizontalGesture = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+			const absX = Math.abs(event.deltaX);
+			const isHorizontalGesture = absX > Math.abs(event.deltaY);
 
 			if (!isHorizontalGesture) {
 				return;
 			}
 
-			if (Math.abs(event.deltaX) < wheelDeltaNoiseThreshold) {
+			event.preventDefault();
+
+			if (wheelLocked) {
 				return;
 			}
 
-			const now = performance.now();
-
-			if (now - lastHorizontalWheelAt > wheelBurstGapMs) {
-				hasMovedInCurrentWheelBurst = false;
-			}
-
-			lastHorizontalWheelAt = now;
-			event.preventDefault();
-
-			if (hasMovedInCurrentWheelBurst) {
+			if (absX < wheelTriggerThreshold) {
 				return;
 			}
 
 			const moved = event.deltaX > 0 ? moveToNext() : moveToPrevious();
 
 			if (moved) {
-				hasMovedInCurrentWheelBurst = true;
+				wheelLocked = true;
+
+				if (wheelUnlockTimer) {
+					clearTimeout(wheelUnlockTimer);
+				}
+
+				wheelUnlockTimer = setTimeout(() => {
+					wheelLocked = false;
+				}, wheelUnlockDelayMs);
 			}
 		},
 		{ passive: false }
