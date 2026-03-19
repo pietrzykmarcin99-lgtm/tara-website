@@ -7,6 +7,12 @@
   top: 0;
   z-index: 200;
 
+  @include mobile {
+    position: fixed;
+    width: 100%;
+    left: 0;
+  }
+
   &__container {
     padding: 62px 113px 62px 76px;
     display: flex;

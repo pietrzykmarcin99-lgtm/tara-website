@@ -10,23 +10,69 @@
   gap: 20px;
   position: relative;
 
-  &__texts {
-    max-width: 700px;
+  @include mobile {
+    flex-direction: column;
+    padding: 0 0 180px;
+    margin-bottom: 150px;
   }
 
-  &__decor-arrow-desktop {
-    position: absolute;
-    right: 90px;
-    bottom: -90px;
+  &__texts {
+    max-width: 700px;
+
+    @include mobile {
+      padding: 28px 42px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  &__decor-arrow {
+
+    &-desktop {
+      position: absolute;
+      right: 90px;
+      bottom: -90px;
+    }
+
+    &-mobile {
+      margin: 0 auto;
+    }
+  }
+
+  &__img-wrapper {
+    flex-shrink: 0;
+  }
+
+  @include mobile {
+    &__img-wrapper {
+      width: 100%;
+      padding: 80px 20px 0;
+      background-color: $color-tuna-light;
+      overflow: hidden;
+
+      img {
+          margin: 0 auto -20px;
+      }
+    }
+
   }
   
   h1 {
     margin-bottom: 14px;
     @include font-size(rem(88px), 500);
+
+    @include mobile {
+      @include font-size(rem(46px), 500);
+      margin-bottom: 12px;
+    }
   }
 
   p {
     @include font-size(rem(32px), 300, 1.1);
+
+    @include mobile {
+      @include font-size(rem(19px), 300, 1.3);
+    }
   }
 }
 
