@@ -5,9 +5,17 @@
   padding: 40px 100px 200px;
   text-align: center;
 
+  @include smaller-desktop {
+    padding: 40px 100px 120px;
+  }
+
   h2 {
     margin: 0 0 130px;
-  }
+
+      @include smaller-desktop {
+        margin: 0 0 100px;
+      }
+    }
 
   &__main-button {
     padding: 70px 130px;
@@ -25,6 +33,11 @@
     border: none;
 
     @include font-size(rem(69px), 700);
+
+    @include smaller-desktop {
+      @include font-size(rem(50px), 700);
+      padding: 50px 100px;
+    }
 
     &-container {
       position: relative;
@@ -89,16 +102,31 @@
           top: 8px;
           right: calc(50% + 320px + 97px);
           transform-origin: center;
+
+          @include smaller-desktop {
+            right: calc(50% + 320px);
+            top: -10px;
+          }
         }
         &:nth-child(2) {
           top: 94px;
           right: calc(50% + 320px + 78px);
           transform-origin: right calc(50% - 90px);
+
+          @include smaller-desktop {
+            right: calc(50% + 320px);
+            top: 70px;
+          }
         }
         &:nth-child(3) {
           top: 183px;
           right: calc(50% + 320px + 75px);
           transform-origin: right calc(50% - 90px);
+
+          @include smaller-desktop {
+            right: calc(50% + 320px);
+            top: 150px;
+          }
         }
       }
     }
@@ -114,16 +142,31 @@
           top: -8px;
           left: calc(50% + 330px + 106px);
           transform-origin: left calc(50% - -120px);
+
+          @include smaller-desktop {
+            top: -30px;
+            left: calc(50% + 330px);
+          }
         }
         &:nth-child(2) {
           top: 98px;
           left: calc(50% + 330px + 88px);
           transform-origin: left calc(50% + 210px);
+
+          @include smaller-desktop {
+            top: 68px;
+            left: calc(50% + 330px);
+          }
         }
         &:nth-child(3) {
           top: 197px;
           left: calc(50% + 330px + 90px);
           transform-origin: left 120px;
+
+          @include smaller-desktop {
+            top: 150px;
+            left: calc(50% + 330px);
+          }
         }
       }
     }
@@ -131,13 +174,17 @@
     &-decor1, &-decor2, &-round-vector {
       position: absolute;
       z-index: 100;
-      z-index: 100;
-      z-index: 100;
 
       transition: all 0.3s ease-in-out;
 
       svg, path {
         transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &-round-vector svg {
+      @include smaller-desktop {
+        width: 580px;
       }
     }
   }
@@ -149,10 +196,19 @@
     gap: 12px;
     padding: 0 100px;
 
+    @include smaller-desktop {
+      padding: 0 60px;
+    }
+
     svg {
       height: 88px;
       width: 88px;
       fill: $color-white;
+
+      @include smaller-desktop {
+        height: 80px;
+        width: 80px;
+      }
 
       g path {
         fill: $color-white;

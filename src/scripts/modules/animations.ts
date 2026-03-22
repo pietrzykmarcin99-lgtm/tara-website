@@ -5,6 +5,7 @@ import { initInViewAnimation } from './animations/in-view';
 import { initDecors } from './animations/decors';
 import { initButtonDecors } from './animations/btn-decors';
 import { initThisIsMeAnimations, initThisIsMeModals, initThisIsMeArtPortfolioAnimations } from './animations/this-is-me';
+import { initRecentWorkAnimation } from './animations/recent-work';
 
 export function initAnimations(): void {
   log('Initializing animations...');
@@ -35,4 +36,5 @@ export function initAnimations(): void {
   initThisIsMeAnimations();
   initThisIsMeModals();
   initThisIsMeArtPortfolioAnimations();
+  initRecentWorkAnimation();
 }

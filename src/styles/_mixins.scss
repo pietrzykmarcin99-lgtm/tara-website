@@ -21,6 +21,18 @@
   }
 }
 
+@mixin smaller-desktop {
+  @media (max-width: ($breakpoint-desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) and (max-width: ($breakpoint-desktop - 1)) {
+    @content;
+  }
+}
+
 // Transition helper
 @mixin transition($properties...) {
   transition-property: $properties;

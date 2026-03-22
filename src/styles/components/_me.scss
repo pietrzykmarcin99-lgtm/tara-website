@@ -10,9 +10,13 @@
   gap: 20px;
   position: relative;
 
+  @include smaller-desktop {
+    padding: 20px 100px 240px;
+  }
+
   @include mobile {
     flex-direction: column;
-    padding: 0 0 180px;
+    padding: 0 0 60px;
     margin-bottom: 150px;
   }
 
@@ -20,7 +24,7 @@
     max-width: 700px;
 
     @include mobile {
-      padding: 28px 42px;
+      padding: 28px 34px;
       text-align: center;
       margin: 0 auto;
     }
@@ -32,6 +36,11 @@
       position: absolute;
       right: 90px;
       bottom: -90px;
+
+      @include smaller-desktop {
+        height: 180px;
+        bottom: -0;
+      }
     }
 
     &-mobile {
@@ -41,6 +50,12 @@
 
   &__img-wrapper {
     flex-shrink: 0;
+
+    @include smaller-desktop {
+      img {
+          width: 300px;
+      }
+    }
   }
 
   @include mobile {
@@ -54,12 +69,16 @@
           margin: 0 auto -20px;
       }
     }
-
   }
+  
   
   h1 {
     margin-bottom: 14px;
     @include font-size(rem(88px), 500);
+
+    @include smaller-desktop {
+      @include font-size(rem(60px), 500);
+    }
 
     @include mobile {
       @include font-size(rem(46px), 500);
@@ -69,6 +88,10 @@
 
   p {
     @include font-size(rem(32px), 300, 1.1);
+
+    @include smaller-desktop {
+      @include font-size(rem(24px), 300);
+    }
 
     @include mobile {
       @include font-size(rem(19px), 300, 1.3);

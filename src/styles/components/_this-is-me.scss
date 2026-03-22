@@ -4,6 +4,11 @@
 .this-is-me {
   padding: 0px 100px 200px;
 
+    
+  @include smaller-desktop {
+      padding: 0px 100px 100px;
+  }
+
   h2 {
     margin: 0;
   }
@@ -31,6 +36,11 @@
         display: grid;
         grid-template-columns: 250px auto 250px;
         gap: 70px;
+        
+        @include smaller-desktop {
+          grid-template-columns: 200px auto 200px;
+          gap: 50px;
+        }
       }
     }
 
@@ -55,11 +65,19 @@
       transform: translateY(50%);
       transition: opacity 0.5s ease, transform 0.5s ease;
 
-      > img {
-        object-fit: cover;
+      &-image {
+        object-fit: contain;
         margin: 0 0 10px;
+
+        @include smaller-desktop {
+          margin: 0;
+          max-width: 130px;
+          max-height: 130px;
+
+        }
       }
     }
+    
 
     &-content-col {
       display: flex;
@@ -154,11 +172,19 @@
     h3 {
       @include font-size(rem(48px), 400);
       margin-bottom: 7px;
+
+      @include smaller-desktop {
+        @include font-size(rem(38px), 400);
+      }
     }
 
     p {
       @include font-size(rem(23px), 300);
       margin-bottom: 18px;
+
+      @include smaller-desktop {
+        @include font-size(rem(18px), 300);
+      }
     }
   }
 
@@ -168,6 +194,11 @@
     align-items: center;
     justify-content: center;
     padding: 281px 20px 30px;
+
+    
+    @include smaller-desktop {
+      padding: 220px 20px 30px;
+    }
 
     &-options {
       position: relative;
@@ -198,8 +229,14 @@
         }
       }
 
-      &:nth-child(1) {
+      @include smaller-desktop {
+        button > svg {
+          max-height: 80px;
+          max-width: 80px;
+        }
+      }
 
+      &:nth-child(1) {
         > button {
           transform-origin: bottom right;
           
@@ -214,11 +251,22 @@
         > button {
           top: -94px;
           right: calc(100% + 80px);
+
+          @include smaller-desktop {
+            top: -40px;
+            right: calc(100% + 20px);
+          }
         }
 
         .this-is-me__svg-arrow {
           left: -50px;
           top: 7px;
+
+          @include smaller-desktop {
+            width: 88px;
+            left: 0;
+            top: 7px;
+          }
         }
       }
 
@@ -239,11 +287,21 @@
         > button {
           bottom: calc(100% + 105px);
           left: -74px;
+
+          @include smaller-desktop {
+            left: -10px;
+            bottom: calc(100% + 80px);
+          }
         }
 
         .this-is-me__svg-arrow {
           left: 77px;
           bottom: 100%;
+
+          @include smaller-desktop {
+            height: 85px;
+            left: 60px;
+          }
         }
       }
 
@@ -261,11 +319,22 @@
         > button {
           bottom: calc(100% + 83px);
           left: calc(100% + 16px);
+
+          @include smaller-desktop {
+          bottom: calc(100% + 80px);
+          left: calc(100% - 10px);
+          }
         }
 
         .this-is-me__svg-arrow {
           bottom: calc(100% + 10px);
           right: 14px;
+
+          @include smaller-desktop {
+            width: 77px;
+            bottom: calc(100%);
+            right: 20px;
+          }
         }
       }
 
@@ -283,11 +352,20 @@
         > button {
           top: -10px;
           left: calc(100% + 152px);
+
+          @include smaller-desktop {
+            top: -10px;
+            left: calc(100% + 80px);
+          }
         }
 
         .this-is-me__svg-arrow {
           top: 22px;
           left: calc(100% - 50px);
+
+          @include smaller-desktop {
+            width: 110px;
+          }
         }
       }
     }
@@ -303,6 +381,11 @@
       position: relative;
       border: none;
       background: none;
+
+      @include smaller-desktop {
+        height: 240px;
+        width: 300px;
+      }
 
       &:hover {
         .this-is-me__me-img--real {

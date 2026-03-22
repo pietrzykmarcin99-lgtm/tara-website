@@ -5,4 +5,12 @@ h2.common-heading {
   @include font-size(rem(69px), 400);
   margin-bottom: 42px;
   text-align: center;
+
+  @include smaller-desktop {
+    @include font-size(rem(50px), 400);
+  }
+
+    @include mobile {
+    @include font-size(rem(47px), 400);
+  }
 }

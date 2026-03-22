@@ -9,6 +9,10 @@
   padding: 118px 74px 180px;
   overflow: hidden;
 
+  @include smaller-desktop {
+    padding: 20px 74px 20px;
+  }
+
   &::before,
   &::after {
     content: '';
@@ -54,6 +58,17 @@
       cursor: pointer;
       transform: scale(1);
       transition: transform 0.2s ease-in-out;
+
+      @include smaller-desktop {
+        max-height: 350px;
+        max-width: 500px;
+
+        &.slider__item--robot {
+          max-width: 200px;
+  
+        }
+      }
+
     }
 
     &:hover > img {
