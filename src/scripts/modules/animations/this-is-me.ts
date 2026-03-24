@@ -51,8 +51,8 @@ function getOptionElements({ index }: ThisIsMeOption): ThisIsMeElements | null {
   if (!option) {
     return null;
   }
-
-  const arrowSvg = option.querySelector<SVGSVGElement>('.this-is-me__svg-arrow');
+  const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+  const arrowSvg = option.querySelector<SVGSVGElement>(`.this-is-me__svg-arrow${isMobile ? '.mobile-only' : '.desktop-only'}`);
   const imageSvg = option.querySelector<SVGSVGElement>('.this-is-me__svg-image');
   const arrowMasks = getSvgMasks(arrowSvg);
   const imageMasks = getSvgMasks(imageSvg);
@@ -179,8 +179,10 @@ export function initThisIsMeArtPortfolioAnimations(): void {
   const artModalOpenTrigger = document.querySelector<HTMLButtonElement>(
     '.this-is-me__mind-map-option:nth-child(2) > button'
   );
+  const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+
   const artItemLinks = Array.from(
-    artModal?.querySelectorAll<HTMLAnchorElement>('.this-is-me__modal-content-col > a') ?? []
+    artModal?.querySelectorAll<HTMLAnchorElement>(`.this-is-me__modal-content-col${isMobile ? '.mobile-only' : '.desktop-only'} > a`) ?? []
   );
 
   if (!artModal || !artModalOpenTrigger) {
@@ -189,7 +191,7 @@ export function initThisIsMeArtPortfolioAnimations(): void {
 
   const restingScale = 1;
   const artItems = Array.from(
-    artModal.querySelectorAll<HTMLElement>('.this-is-me__modal-content-col > a > img')
+    artModal.querySelectorAll<HTMLElement>(`.this-is-me__modal-content-col${isMobile ? '.mobile-only' : '.desktop-only'} > a > img`)
   );
 
   if (artItems.length === 0) {

@@ -9,6 +9,11 @@
       padding: 0px 100px 100px;
   }
 
+  @include mobile {
+    padding: 0 20px 135px;
+    overflow-x: hidden;
+  }
+
   h2 {
     margin: 0;
   }
@@ -31,6 +36,10 @@
     pointer-events: none;
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 
+    @include mobile { 
+      padding: 42px;
+    }
+
     &-3col {
       .this-is-me__modal-content {
         display: grid;
@@ -40,6 +49,24 @@
         @include smaller-desktop {
           grid-template-columns: 200px auto 200px;
           gap: 50px;
+        }
+
+        @include mobile {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 24px;
+
+          &-col-images {
+            height: 150px;
+            width: 100%;
+
+            > a {
+              width: min(350px, 88vw);
+              height: 100%;
+              position: relative;
+            }
+          }
         }
       }
     }
@@ -73,7 +100,11 @@
           margin: 0;
           max-width: 130px;
           max-height: 130px;
+        }
 
+        @include mobile {
+          max-width: 160px;
+          max-height: 160px;
         }
       }
     }
@@ -157,6 +188,67 @@
       &:hover {
         transform: scale(1.2);
       }
+
+      @include mobile {
+        right: -6px;
+      }
+    }
+    
+    &-portfolio-image {
+      @include mobile {
+        position: absolute;
+        object-fit: scale-down;
+
+        &:nth-child(1) {
+          width: 76px;
+          height: 98px;
+          left: 0;
+          top: 34px;
+          z-index: 150;
+        }
+        &:nth-child(2) {
+          width: 85px;
+          height: 75px;
+          left: 60px;
+          top: 0;
+          z-index: 130;
+        }
+        &:nth-child(3) {
+          width: 78px;
+          height: 89px;
+          left: 48px;
+          top: 73px;
+          z-index: 140;
+        }
+        &:nth-child(4) {
+          width: 118px;
+          height: 83px;
+          left: 94px;
+          top: 53px;
+          z-index: 135;
+        }
+        &:nth-child(5) {
+          width: 78px;
+          height: 84px;
+          left: 159px;
+          top: 0;
+          z-index: 130;
+        }
+        &:nth-child(6) {
+          width: 73px;
+          height: 95px;
+          left: 190px;
+          top: 75px;
+          z-index: 140;
+        }
+        &:nth-child(7) {
+          width: 84px;
+          height: 84px;
+          left: 228px;
+          top: 34px;
+          z-index: 136;
+        }
+      }
     }
   }
 
@@ -164,6 +256,10 @@
     position: relative;
     width: min(350px, 88vw);
     text-align: center;
+
+    @include mobile {
+      max-width: 100%;
+    }
 
     > img {
       width: 100%;
@@ -256,6 +352,10 @@
             top: -40px;
             right: calc(100% + 20px);
           }
+
+          @include mobile {
+            right: calc(100% + -5px);
+          }
         }
 
         .this-is-me__svg-arrow {
@@ -292,6 +392,11 @@
             left: -10px;
             bottom: calc(100% + 80px);
           }
+
+          @include mobile {
+            left: 0px;
+            bottom: calc(100% + 60px);
+          }
         }
 
         .this-is-me__svg-arrow {
@@ -301,6 +406,11 @@
           @include smaller-desktop {
             height: 85px;
             left: 60px;
+          }
+
+          @include mobile {
+            height: auto;
+            bottom: calc(100% - 20px);
           }
         }
       }
@@ -321,8 +431,13 @@
           left: calc(100% + 16px);
 
           @include smaller-desktop {
-          bottom: calc(100% + 80px);
-          left: calc(100% - 10px);
+            bottom: calc(100% + 80px);
+            left: calc(100% - 10px);
+          }
+
+          @include mobile {
+            bottom: calc(100% + 65px);
+            left: calc(100% - 90px);
           }
         }
 
@@ -334,6 +449,12 @@
             width: 77px;
             bottom: calc(100%);
             right: 20px;
+          }
+
+          @include mobile {
+            width: auto;
+            bottom: calc(100% - 20px);
+            right: 60px;
           }
         }
       }
@@ -357,6 +478,11 @@
             top: -10px;
             left: calc(100% + 80px);
           }
+
+          @include mobile {
+            top: -40px;
+            left: calc(100% + -10px);
+          }
         }
 
         .this-is-me__svg-arrow {
@@ -365,6 +491,12 @@
 
           @include smaller-desktop {
             width: 110px;
+          }
+                    
+          @include mobile {
+            width: auto;
+            top: 12px;
+            left: calc(100% - 85px);
           }
         }
       }
@@ -385,6 +517,11 @@
       @include smaller-desktop {
         height: 240px;
         width: 300px;
+      }
+
+      @include mobile {
+        height: 331px;
+        width: 234px;
       }
 
       &:hover {
