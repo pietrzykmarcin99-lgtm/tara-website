@@ -4,6 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export function initRecentWorkAnimation(): void {
   const tiles = document.querySelectorAll<HTMLElement>('.recent-work__tile');
 
+  if (!tiles.length) {
+    return;
+  }
+
   gsap.registerPlugin(ScrollTrigger);
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -13,19 +17,23 @@ export function initRecentWorkAnimation(): void {
 		return;
 	}
 
-  tiles.forEach((tile) => {
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: tile,
-				start: 'bottom 110%',
-				// toggleActions: 'play reverse play reverse'
-			}
-		});
+  gsap.set(tiles, { opacity: 0, y: 24 });
 
-		tl.fromTo(
+  tiles.forEach((tile) => {
+		gsap.fromTo(
 			tile,
 			{ opacity: 0, y: 24 },
-			{ opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+			{
+				opacity: 1,
+				y: 0,
+				duration: 1,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: tile,
+					start: 'top 70%',
+					once: true
+				}
+			}
 		);
 
 		// const h3 = tile.querySelector('h3');

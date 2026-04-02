@@ -4,8 +4,14 @@ import { log } from '../utils/logger';
 import { initInViewAnimation } from './animations/in-view';
 import { initDecors } from './animations/decors';
 import { initButtonDecors } from './animations/btn-decors';
-import { initThisIsMeAnimations, initThisIsMeModals, initThisIsMeArtPortfolioAnimations } from './animations/this-is-me';
+import {
+  initThisIsMeAnimations,
+  initThisIsMeModals,
+  initThisIsMeArtPortfolioAnimations,
+  initArrowMobileThisIsMeScrollAnimation
+} from './animations/this-is-me';
 import { initRecentWorkAnimation } from './animations/recent-work';
+import { initializeMeAnimations } from './animations/me';
 
 export function initAnimations(): void {
   log('Initializing animations...');
@@ -36,5 +42,7 @@ export function initAnimations(): void {
   initThisIsMeAnimations();
   initThisIsMeModals();
   initThisIsMeArtPortfolioAnimations();
+  initArrowMobileThisIsMeScrollAnimation();
   initRecentWorkAnimation();
+  initializeMeAnimations();
 }

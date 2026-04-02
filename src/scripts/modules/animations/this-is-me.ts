@@ -37,6 +37,10 @@ const OPTIONS: ThisIsMeOption[] = [
   }
 ];
 
+const MOBILE_BREAKPOINT_QUERY = '(max-width: 1024px)';
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+const MOBILE_ARROW_SPLIT_PERCENT = 47;
+
 function getSvgMasks(svg: SVGSVGElement | null): SVGPathElement[] {
   if (!svg) {
     return [];
@@ -283,4 +287,116 @@ export function initThisIsMeArtPortfolioAnimations(): void {
   artModalOpenTrigger.addEventListener('click', playArtItemsAnimation);
 
   
+}
+
+export function initArrowMobileThisIsMeScrollAnimation() {
+  const mobileMedia = window.matchMedia(MOBILE_BREAKPOINT_QUERY);
+
+  const initAnimation = (): void => {
+    if (!mobileMedia.matches) {
+      return;
+    }
+
+    const container = document.querySelector<HTMLElement>('.this-is-me__arrow-mobile');
+    const svg = container?.querySelector<SVGSVGElement>('svg');
+    const button = container?.querySelector<HTMLElement>('.this-is-me__mobile-arrow-btn');
+    const maskPaths = Array.from(svg?.querySelectorAll<SVGPathElement>('mask path') ?? []);
+
+    const nextHeading = document.querySelector('.lets-connect h2.mobile-only')
+
+    if (!container || !button || maskPaths.length === 0) {
+      return;
+    }
+
+    if (container.dataset.arrowMobileAnimationInitialized === 'true') {
+      return;
+    }
+
+    container.dataset.arrowMobileAnimationInitialized = 'true';
+
+    gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+
+    // In this SVG, the last mask path is the long arrow line.
+    // The earlier mask paths are the short arrowhead details.
+    const mainMask = maskPaths[maskPaths.length - 1];
+    const arrowHeadMasks = maskPaths.slice(0, -1);
+
+    if (!mainMask) {
+      return;
+    }
+
+    if (window.matchMedia(REDUCED_MOTION_QUERY).matches) {
+      gsap.set(mainMask, { drawSVG: '0% 100%' });
+      if (arrowHeadMasks.length > 0) {
+        gsap.set(arrowHeadMasks, { drawSVG: '0% 100%' });
+      }
+      gsap.set(button, { '--this-is-me-mobile-btn-fill': 1 } as gsap.TweenVars);
+      return;
+    }
+
+    gsap.set(mainMask, { drawSVG: '0% 0%' });
+    if (arrowHeadMasks.length > 0) {
+      gsap.set(arrowHeadMasks, { drawSVG: '0% 0%' });
+    }
+    gsap.set(button, { '--this-is-me-mobile-btn-fill': 0 } as gsap.TweenVars);
+
+    gsap.set(nextHeading, { scale: 0.8, opacity: 0 });
+    // Scroll progress is split into four clear steps:
+    // 1. Draw the main line until it reaches the button.
+    // 2. Fill the button background from left to right.
+    // 3. Finish drawing the main line.
+    // 4. Draw the arrowhead details last.
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: 'top 85%',
+        end: 'bottom 70%',
+        scrub: 1,
+        invalidateOnRefresh: true
+      }
+    });
+
+    timeline
+      .to(mainMask, {
+        drawSVG: `0% ${MOBILE_ARROW_SPLIT_PERCENT}%`,
+        duration: 1,
+        ease: 'none'
+      })
+      .to(
+        button,
+        {
+          '--this-is-me-mobile-btn-fill': 1,
+          duration: 0.45,
+          ease: 'none'
+        } as gsap.TweenVars
+      )
+      .to(mainMask, {
+        drawSVG: '0% 100%',
+        duration: 1,
+        ease: 'none'
+      });
+
+    if (arrowHeadMasks.length > 0) {
+      timeline.to(arrowHeadMasks, {
+        drawSVG: '0% 100%',
+        duration: 0.25,
+        ease: 'none'
+      });
+    }
+
+    timeline.to(nextHeading, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.5,
+    })
+  };
+
+  initAnimation();
+
+  mobileMedia.addEventListener('change', (event) => {
+    if (event.matches) {
+      initAnimation();
+      ScrollTrigger.refresh();
+    }
+  });
 }

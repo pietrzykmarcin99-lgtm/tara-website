@@ -6,6 +6,9 @@ import { log } from './utils/logger';
 
 // Initialize the application
 function init(): void {
+  document.documentElement.classList.remove('js-loading');
+  document.documentElement.classList.add('js-ready');
+
   log('Initializing portfolio website...');
   
   // Initialize modules
