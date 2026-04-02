@@ -1,0 +1,60 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.project-nav {
+  padding: 20px 28px 16px;
+  background-color: $color-white;
+  display: flex;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  &__button-link {
+    border: 2px solid $color-black;
+    background-color: $color-white;
+    border-radius: 32px;
+    color: $color-black;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+
+    @include font-size(rem(22px), 400);
+
+    svg path {
+      transition: all 0.2s ease-in-out;
+
+      &:nth-child(1) {
+        stroke: $color-black;
+      }
+       &:nth-child(2) {
+        fill: $color-black;
+      }
+    }
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-black;
+
+      svg path {
+        &:nth-child(1) {
+          stroke: $color-white;
+        }
+        &:nth-child(2) {
+          fill: $color-white;
+        }
+      }
+    }
+  }
+
+  &__close {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
