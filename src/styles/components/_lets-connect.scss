@@ -4,9 +4,14 @@
 .lets-connect {
   padding: 40px 100px 200px;
   text-align: center;
+  overflow-x: hidden;
 
   @include smaller-desktop {
     padding: 40px 100px 120px;
+  }
+
+  @include mobile {
+    padding: 40px 40px 120px;
   }
 
   h2 {
@@ -39,6 +44,13 @@
       padding: 50px 100px;
     }
 
+    @include mobile {
+      @include font-size(rem(37px), 700);
+      padding: 30px 26px;
+
+      transform: rotate(-10deg);
+    }
+
     &-container {
       position: relative;
       display: flex;
@@ -50,41 +62,43 @@
 
 
       &:hover {
-        .lets-connect__main-button, .lets-connect__main-button-round-vector {
-          transform: rotate(-3deg);
-        }
-
-        .lets-connect__main-button {
-          background-color: $color-orange2-dark;
-        }
-
-        .lets-connect__main-button-decor1, .lets-connect__main-button-decor2, .lets-connect__main-button-round-vector {
-          path {
-            fill: $color-orange2-dark;
+        @include desktop {
+          .lets-connect__main-button, .lets-connect__main-button-round-vector {
+            transform: rotate(-3deg);
           }
-        }
-
-        .lets-connect__main-button-decor1 {
-          svg {
-            &:nth-child(1) {
-              transform: scale(1.3) rotate(8deg);
-            }
-            &:nth-child(2), &:nth-child(3)  { 
-              transform: scale(1.3) rotate(-3deg);
+  
+          .lets-connect__main-button {
+            background-color: $color-orange2-dark;
+          }
+  
+          .lets-connect__main-button-decor1, .lets-connect__main-button-decor2, .lets-connect__main-button-round-vector {
+            path {
+              fill: $color-orange2-dark;
             }
           }
-        }
-
-        .lets-connect__main-button-decor2 {
-          svg {
-            &:nth-child(1) {
-              transform: scale(1.3) rotate(-8deg);
+  
+          .lets-connect__main-button-decor1 {
+            svg {
+              &:nth-child(1) {
+                transform: scale(1.3) rotate(8deg);
+              }
+              &:nth-child(2), &:nth-child(3)  { 
+                transform: scale(1.3) rotate(-3deg);
+              }
             }
-            &:nth-child(2)  { 
-              transform: scale(1.1) rotate(-3deg);
-            }
-            &:nth-child(3)  { 
-              transform: scale(1.2) rotate(3deg);
+          }
+  
+          .lets-connect__main-button-decor2 {
+            svg {
+              &:nth-child(1) {
+                transform: scale(1.3) rotate(-8deg);
+              }
+              &:nth-child(2)  { 
+                transform: scale(1.1) rotate(-3deg);
+              }
+              &:nth-child(3)  { 
+                transform: scale(1.2) rotate(3deg);
+              }
             }
           }
         }
@@ -95,6 +109,9 @@
       width: 100%;
       height: 100%;
 
+      @include mobile {
+        transform: rotate(-10deg);
+      }
       svg {
         position: absolute;
 
@@ -107,6 +124,11 @@
             right: calc(50% + 320px);
             top: -10px;
           }
+
+          @include mobile {
+            width: 27px;
+            right: calc(50% + 160px);
+          }
         }
         &:nth-child(2) {
           top: 94px;
@@ -116,6 +138,12 @@
           @include smaller-desktop {
             right: calc(50% + 320px);
             top: 70px;
+          }
+
+          @include mobile {
+            width: 42px;
+            right: calc(50% + 160px);
+            top: 40px;
           }
         }
         &:nth-child(3) {
@@ -127,6 +155,12 @@
             right: calc(50% + 320px);
             top: 150px;
           }
+
+          @include mobile {
+            width: 33px;
+            right: calc(50% + 160px);
+            top: 70px;
+          }
         }
       }
     }
@@ -134,7 +168,9 @@
     &-decor2 {
       width: 100%;
       height: 100%;
-
+      @include mobile {
+        transform: rotate(-10deg);
+      }
       svg {
         position: absolute;
 
@@ -147,6 +183,12 @@
             top: -30px;
             left: calc(50% + 330px);
           }
+
+          @include mobile {
+            width: 31px;
+            left: calc(50% + 160px);
+            top: -25px;
+          }
         }
         &:nth-child(2) {
           top: 98px;
@@ -157,6 +199,12 @@
             top: 68px;
             left: calc(50% + 330px);
           }
+          
+          @include mobile {
+            width: 50px;
+            left: calc(50% + 160px);
+            top: 25px;
+          }
         }
         &:nth-child(3) {
           top: 197px;
@@ -166,6 +214,12 @@
           @include smaller-desktop {
             top: 150px;
             left: calc(50% + 330px);
+          }
+
+          @include mobile {
+            width: 37px;
+            left: calc(50% + 160px);
+            top: 55px;
           }
         }
       }
@@ -182,9 +236,20 @@
       }
     }
 
-    &-round-vector svg {
-      @include smaller-desktop {
-        width: 580px;
+    &-round-vector  {
+
+      @include mobile {
+        transform: rotate(-10deg);
+      }
+
+      svg {
+        @include smaller-desktop {
+          width: 580px;
+        }
+  
+        @include mobile {
+          width: 307px;
+        }
       }
     }
   }
@@ -198,6 +263,11 @@
 
     @include smaller-desktop {
       padding: 0 60px;
+    }
+
+    @include mobile {
+      padding: 0;
+      justify-content: center;
     }
 
     svg {
