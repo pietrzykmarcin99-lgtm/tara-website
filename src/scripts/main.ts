@@ -2,6 +2,7 @@
 import { initNavigation } from './modules/navigation';
 import { initAnimations } from './modules/animations';
 import { initSlider } from './modules/slider';
+import { initVideo } from './modules/video';
 import { log } from './utils/logger';
 
 // Initialize the application
@@ -15,6 +16,7 @@ function init(): void {
   initNavigation();
   initSlider();
   initAnimations();
+  initVideo();
   
   log('Portfolio website initialized successfully!');
 }

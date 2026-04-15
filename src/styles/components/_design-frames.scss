@@ -1,0 +1,86 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.design-frames {
+  padding: 16px 0 86px;
+
+  &__row {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 162px 0.8fr;
+    margin-bottom: 56px;
+    position: relative;
+
+    &--wider-2nd-column {
+      grid-template-columns: 162px 1fr;
+    }
+
+    h3 {
+      @include font-size(rem(20px), 300);
+    }
+
+    &:nth-child(1) {
+      h3 {
+        margin-top: 12px; 
+      }
+    }
+
+    &:nth-child(2) {
+      h3 {
+        margin-top: 8px; 
+      }
+    }
+
+    &:nth-child(3) {
+      h3 {
+        margin-top: 82px; 
+      }
+    }
+  }
+
+  &__content {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    right: calc(8% - 120px);
+    top: 100%;
+
+    @include smaller-desktop {
+      right: calc(15% - -280px);
+    }
+
+    p {
+      @include font-size(rem(19px), 500);
+      color: $color-pink-text;
+      position: relative;
+      z-index: 30;
+    }
+
+    ul {
+      padding: 4px 0 0 26px;
+      margin: 0;
+      position: relative;
+      z-index: 30;
+    }
+
+    li {
+      @include font-size(rem(17px), 300);
+    }
+
+    svg {
+      position: absolute;
+      width: calc(100% + 60px);
+      height: calc(100% + 110px);
+      top: -77px;
+      left: -31px;
+
+      @include smaller-desktop {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.screens-and-text-under {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 25px;
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    img {
+      max-height: 454px;
+      object-fit: cover;
+    }
+  }
+
+
+
+  &__texts {
+    p {
+      margin: 0 0 4px;
+      color: $color-pink-text2;
+      @include font-size(rem(20px), 500);
+    }
+
+    ul {
+      @include font-size(rem(20px), 300, 1.1);
+      margin: 0;
+      padding: 0 0 0 25px;
+    }
+  }
+}

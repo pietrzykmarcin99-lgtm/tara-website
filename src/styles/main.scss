@@ -20,6 +20,11 @@
 
 @use 'components/project-nav';
 @use 'components/project-header';
+@use 'components/project-timeline';
+@use 'components/design-frames';
+@use 'components/screens-and-text-under';
+@use 'components/prototype-with-mobile-screens';
+@use 'components/project-page';
 
 
 // You can split styles into multiple files and import them here
