@@ -12,6 +12,7 @@ import {
 } from './animations/this-is-me';
 import { initRecentWorkAnimation } from './animations/recent-work';
 import { initializeMeAnimations } from './animations/me';
+import { initToggleableSectionAnimation } from './toggleable-section';
 
 export function initAnimations(): void {
   log('Initializing animations...');
@@ -45,4 +46,5 @@ export function initAnimations(): void {
   initArrowMobileThisIsMeScrollAnimation();
   initRecentWorkAnimation();
   initializeMeAnimations();
+  initToggleableSectionAnimation();
 }
