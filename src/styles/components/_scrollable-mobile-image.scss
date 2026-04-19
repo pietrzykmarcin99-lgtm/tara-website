@@ -1,6 +1,80 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
+
 .scrollable-mobile-image {
+	--arrow-size: 42px;
+	--arrow-offset: 10px;
+
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: relative;
+
+	&__viewport {
+		cursor: grab;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-width: none;
+		touch-action: pan-y;
+		user-select: none;
+		width: 100%;
+
+		-ms-overflow-style: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&__image {
+		display: block;
+		height: auto;
+		max-width: none;
+		pointer-events: none;
+		user-select: none;
+		-webkit-user-drag: none;
+		width: auto;
+	}
+
+	&__arrow {
+		align-items: center;
+		background: rgb(255 255 255);
+		border: 0;
+		border-radius: 999px;
+		box-shadow: 0 2px 10px rgb(0 0 0 / 12%);
+		cursor: pointer;
+		display: flex;
+		height: var(--arrow-size);
+		justify-content: center;
+		padding: 0;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: var(--arrow-size);
+		z-index: 2;
+
+		&[hidden] {
+			display: none;
+		}
+
+		&--left {
+			left: var(--arrow-offset);
+
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+
+		&--right {
+			right: var(--arrow-offset);
+		}
+	}
+
+	&--dragging {
+		.scrollable-mobile-image__viewport {
+			cursor: grabbing;
+		}
+	}
 
 }

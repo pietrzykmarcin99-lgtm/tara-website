@@ -56,10 +56,27 @@
         margin-top: 8px;
       }
     }
+
+    &-skills {
+      display: flex;
+      gap: 13px;
+      padding-left: 50px;
+      margin: 0 0 20px;
+    }
+
+    &-tags {
+      padding-left: 50px;
+    }
   }
+
 
   &__icon {
     width: 38px;
+
+    svg {
+      width: 100%;
+      max-height: 40px;
+    }
   }
 
   &__content-inner {

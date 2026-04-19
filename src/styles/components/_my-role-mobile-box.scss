@@ -1,0 +1,26 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+.my-role-mobile-box {
+  padding: 30px 34px 21px 21px;
+  display: flex;
+  gap: 21px;
+  border: 2px solid $color-blue-button;
+  border-radius: 13px;
+  margin: 0 40px 30px;
+
+  h2 {
+    @include font-size(rem(19px), 400);
+    margin: 0 0 9px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    margin: 0 0 12px;
+    @include font-size(rem(12px), 300);
+  }
+}

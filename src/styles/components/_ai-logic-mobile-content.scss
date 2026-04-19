@@ -1,0 +1,40 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+.ai-logic-mobile-content {
+  margin: 0 0 20px;
+  &__flowrabbit-box {
+    position: relative;
+    margin: 12px 0 20px;
+    padding: 12px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    svg {
+      position: absolute;
+      width: 100%;
+      top: 3px;
+      left: 0px;
+      height: 100%;
+    }
+
+    &-icon {
+      filter: invert(1);
+      object-fit: scale-down;
+    }
+
+    p {
+      @include font-size(rem(11px), 300, 1.2);
+    }
+  }
+
+  ul {
+    margin: 12px 0 0;
+    padding-left: 24px;
+    li {
+      @include font-size(rem(11px), 300, 1.2);
+    }
+  }
+} 

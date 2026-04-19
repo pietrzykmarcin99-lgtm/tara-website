@@ -3,6 +3,7 @@ import { initNavigation } from './modules/navigation';
 import { initAnimations } from './modules/animations';
 import { initSlider } from './modules/slider';
 import { initVideo } from './modules/video';
+import { initScrollableMobileImage } from './modules/scrollable-mobile-image';
 import { log } from './utils/logger';
 
 // Initialize the application
@@ -17,6 +18,7 @@ function init(): void {
   initSlider();
   initAnimations();
   initVideo();
+  initScrollableMobileImage();
   
   log('Portfolio website initialized successfully!');
 }

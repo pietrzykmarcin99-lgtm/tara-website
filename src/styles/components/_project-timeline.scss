@@ -291,6 +291,12 @@
     list-style: none;
     @include font-size(rem(17px), 300);
 
+    @include mobile {
+      @include font-size(rem(12px), 300);
+      margin: 10px 0 0;
+      padding-left: 10px;
+    }
+
     li {
       margin: 0 0 20px;
       display: flex;
@@ -302,6 +308,16 @@
         height: 18px;
         width: 16px;
         flex-shrink: 0;
+
+        @include mobile {
+          height: 15px;
+        }
+      }
+
+      &:last-child {
+        @include mobile {
+          margin: 0;
+        }
       }
     }
   }
