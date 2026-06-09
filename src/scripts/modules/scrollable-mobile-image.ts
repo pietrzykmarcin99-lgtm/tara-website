@@ -1,5 +1,6 @@
 type ScrollableState = {
   pointerId: number | null;
+  touchId: number | null;
   isDragging: boolean;
   dragStartX: number;
   startScrollLeft: number;
@@ -31,6 +32,17 @@ function updateArrowVisibility(
   rightArrow.hidden = atEnd;
 }
 
+function getTouchById(touchList: TouchList, touchId: number): Touch | null {
+  for (let index = 0; index < touchList.length; index += 1) {
+    const touch = touchList.item(index);
+    if (touch && touch.identifier === touchId) {
+      return touch;
+    }
+  }
+
+  return null;
+}
+
 function setupScrollableImage(root: HTMLElement): void {
   const viewport = root.querySelector<HTMLElement>('.scrollable-mobile-image__viewport');
   const leftArrow = root.querySelector<HTMLButtonElement>('.scrollable-mobile-image__arrow--left');
@@ -48,6 +60,7 @@ function setupScrollableImage(root: HTMLElement): void {
 
   const state: ScrollableState = {
     pointerId: null,
+    touchId: null,
     isDragging: false,
     dragStartX: 0,
     startScrollLeft: 0,
@@ -72,6 +85,29 @@ function setupScrollableImage(root: HTMLElement): void {
     event.preventDefault();
   });
 
+  const startDrag = (clientX: number): void => {
+    state.isDragging = true;
+    state.dragStartX = clientX;
+    state.startScrollLeft = viewport.scrollLeft;
+    root.classList.add('scrollable-mobile-image--dragging');
+  };
+
+  const updateDrag = (clientX: number): void => {
+    const deltaX = clientX - state.dragStartX;
+    viewport.scrollLeft = state.startScrollLeft - deltaX;
+  };
+
+  const endDrag = (): void => {
+    if (!state.isDragging) {
+      return;
+    }
+
+    state.pointerId = null;
+    state.touchId = null;
+    state.isDragging = false;
+    root.classList.remove('scrollable-mobile-image--dragging');
+  };
+
   viewport.addEventListener('pointerdown', (event: PointerEvent) => {
     if (event.pointerType === 'mouse' && event.button !== 0) {
       return;
@@ -83,13 +119,10 @@ function setupScrollableImage(root: HTMLElement): void {
     }
 
     state.pointerId = event.pointerId;
-    state.isDragging = true;
-    state.dragStartX = event.clientX;
-    state.startScrollLeft = viewport.scrollLeft;
+    startDrag(event.clientX);
 
     event.preventDefault();
     viewport.setPointerCapture(event.pointerId);
-    root.classList.add('scrollable-mobile-image--dragging');
   });
 
   viewport.addEventListener('pointermove', (event: PointerEvent) => {
@@ -98,22 +131,55 @@ function setupScrollableImage(root: HTMLElement): void {
     }
 
     event.preventDefault();
-    const deltaX = event.clientX - state.dragStartX;
-    viewport.scrollLeft = state.startScrollLeft - deltaX;
+    updateDrag(event.clientX);
   });
-
-  const endDrag = (): void => {
-    if (!state.isDragging) {
-      return;
-    }
-
-    state.pointerId = null;
-    state.isDragging = false;
-    root.classList.remove('scrollable-mobile-image--dragging');
-  };
 
   viewport.addEventListener('pointerup', endDrag);
   viewport.addEventListener('pointercancel', endDrag);
+
+  viewport.addEventListener('touchstart', (event: TouchEvent) => {
+    if (state.isDragging || event.touches.length !== 1) {
+      return;
+    }
+
+    const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    if (maxScrollLeft <= SCROLL_EDGE_THRESHOLD) {
+      return;
+    }
+
+    const touch = event.touches.item(0);
+    if (!touch) {
+      return;
+    }
+
+    state.touchId = touch.identifier;
+    startDrag(touch.clientX);
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', (event: TouchEvent) => {
+    if (!state.isDragging || state.touchId === null) {
+      return;
+    }
+
+    const touch = getTouchById(event.touches, state.touchId);
+    if (!touch) {
+      return;
+    }
+
+    event.preventDefault();
+    updateDrag(touch.clientX);
+  }, { passive: false });
+
+  viewport.addEventListener('touchend', (event: TouchEvent) => {
+    if (state.touchId === null || getTouchById(event.touches, state.touchId)) {
+      return;
+    }
+
+    endDrag();
+  });
+
+  viewport.addEventListener('touchcancel', endDrag);
+
 
   const resizeObserver = new ResizeObserver(update);
   resizeObserver.observe(viewport);

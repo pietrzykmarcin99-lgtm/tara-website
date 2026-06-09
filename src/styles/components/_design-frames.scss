@@ -41,16 +41,29 @@
   &__content {
     img {
       width: 100%;
+      max-height: 500px;
+      object-fit: scale-down;
+      object-position: left top;
+
+      @include smaller-desktop {
+        max-height: 200px;
+
+        &.design-frames__frame--taller {
+          max-height: 350px;
+        }
+        
+      }
     }
   }
 
   &__popup {
     position: absolute;
-    right: calc(8% - 120px);
-    top: 100%;
+    left: 810px;
+    top: calc(100% + 40px);
 
     @include smaller-desktop {
-      right: calc(15% - -280px);
+      left: calc(50% - -110px);
+      transform: translateX(10%);
     }
 
     p {
@@ -78,9 +91,9 @@
       top: -77px;
       left: -31px;
 
-      @include smaller-desktop {
-        transform: rotateY(180deg);
-      }
+      // @include smaller-desktop {
+      //   transform: rotateY(180deg);
+      // }
     }
   }
 }

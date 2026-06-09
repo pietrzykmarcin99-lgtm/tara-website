@@ -4,6 +4,7 @@
 
 .ai-logic-mobile-content {
   margin: 0 0 20px;
+
   &__flowrabbit-box {
     position: relative;
     margin: 12px 0 20px;
@@ -18,6 +19,7 @@
       top: 3px;
       left: 0px;
       height: 100%;
+      z-index: -1;
     }
 
     &-icon {

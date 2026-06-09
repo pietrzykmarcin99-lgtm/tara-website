@@ -3,8 +3,8 @@
 
 
 .scrollable-mobile-image {
-	--arrow-size: 42px;
-	--arrow-offset: 10px;
+	--arrow-size: 32px;
+	--arrow-offset: 2px;
 
 	align-items: center;
 	display: flex;
@@ -63,11 +63,16 @@
 
 			svg {
 				transform: rotate(180deg);
+				margin-right: 3px;
 			}
 		}
 
 		&--right {
 			right: var(--arrow-offset);
+
+			svg {
+				margin-left: 3px;
+			}
 		}
 	}
 

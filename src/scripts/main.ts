@@ -4,8 +4,13 @@ import { initAnimations } from './modules/animations';
 import { initSlider } from './modules/slider';
 import { initVideo } from './modules/video';
 import { initScrollableMobileImage } from './modules/scrollable-mobile-image';
+import { initScrollTo } from './modules/scroll-to';
+import { initMobileFullscreenImage } from './modules/mobile-fullscreen-image';
+import { initRobotBackgroundWidth } from './modules/robot-background-width';
+import { initTabletSlider } from './modules/tablet-slider.ts';
 import { log } from './utils/logger';
-
+import { initProjectPageAnimations } from './modules/animations/project-page';
+import { initSmartFridgeAnimations } from './modules/animations/smart-fridge';
 // Initialize the application
 function init(): void {
   document.documentElement.classList.remove('js-loading');
@@ -19,6 +24,12 @@ function init(): void {
   initAnimations();
   initVideo();
   initScrollableMobileImage();
+  initMobileFullscreenImage();
+  initRobotBackgroundWidth();
+  initTabletSlider();
+  initScrollTo();
+  initProjectPageAnimations();
+  initSmartFridgeAnimations();
   
   log('Portfolio website initialized successfully!');
 }

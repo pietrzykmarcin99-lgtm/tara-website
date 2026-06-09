@@ -12,8 +12,13 @@
     gap: 20px;
 
     img {
-      max-height: 454px;
-      object-fit: cover;
+      max-height: 400px;
+      object-fit: scale-down;
+      align-self: flex-start;
+
+      @include smaller-desktop {
+        max-height: 300px;
+      }
     }
   }
 
@@ -23,11 +28,11 @@
     p {
       margin: 0 0 4px;
       color: $color-pink-text2;
-      @include font-size(rem(20px), 500);
+      @include font-size(rem(20px), 500, 1.2);
     }
 
     ul {
-      @include font-size(rem(20px), 300, 1.1);
+      @include font-size(rem(20px), 300, 1.2);
       margin: 0;
       padding: 0 0 0 25px;
     }

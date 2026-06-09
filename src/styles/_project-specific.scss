@@ -1,0 +1,50 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+.project-page--robot-pepper {
+  overflow-x: clip;
+
+  @supports not (overflow: clip) {
+    overflow-x: hidden;
+  }
+
+  .project-header {
+    background-color: $color-violet-light3;
+
+    &__my-role {
+      flex-shrink: 1;
+    }
+
+    &__image {
+      align-self: flex-end;
+      @include mobile {
+        width: auto;
+        max-width: 46%;
+      }
+    }
+
+    &__my-role-vector-border path, &__my-role-tara-vector path {
+      fill: $color-violet-dark;
+    }
+
+    &__my-role ul li svg path {
+      fill: $color-violet-dark;
+    }
+  }
+
+  .project-timeline__arrow-progress svg path, .project-timeline__icon svg path {
+      fill: $color-violet-dark;
+  }
+
+  .project-timeline {
+    --project-timeline-marker-color: #{$color-violet-dark};
+
+    &__target-group-item {
+      svg path {
+        fill: $color-green2;
+      }
+    }
+  }
+
+}

@@ -31,6 +31,10 @@
 @use 'components/ai-logic-mobile-content';
 @use 'components/video-section-mobile';
 @use 'components/my-role-mobile-box';
+@use 'components/mobile-fullscreen-image';
+@use 'components/tablet-slider';
+
+@use 'project-specific';
 
 
 // You can split styles into multiple files and import them here
