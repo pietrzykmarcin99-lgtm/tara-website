@@ -13,6 +13,7 @@ import {
 import { initRecentWorkAnimation } from './animations/recent-work';
 import { initializeMeAnimations } from './animations/me';
 import { initToggleableSectionAnimation } from './toggleable-section';
+import { initRobotAnimations } from './animations/robot';
 
 export function initAnimations(): void {
   log('Initializing animations...');
@@ -47,4 +48,5 @@ export function initAnimations(): void {
   initRecentWorkAnimation();
   initializeMeAnimations();
   initToggleableSectionAnimation();
+  initRobotAnimations();
 }
