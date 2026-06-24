@@ -253,6 +253,9 @@
       position: absolute;
       z-index: 12;
       left: -20px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
 
       @include smaller-desktop {
         left: -80px;
