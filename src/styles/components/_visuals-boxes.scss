@@ -1,0 +1,30 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.visuals-boxes {
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 193px;
+  gap: 20px;
+
+  &__box {
+    grid-column: span 2;
+    border: 1px solid $line-gray-color;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--3col {
+      grid-column: span 3;
+    }
+
+    video, img {
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+    }
+  }
+}

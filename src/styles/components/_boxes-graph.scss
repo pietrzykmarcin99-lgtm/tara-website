@@ -1,0 +1,70 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.boxes-graph {
+  max-width: 1200px;
+  &__row {
+    display: grid;
+    gap: 0 30px;
+    grid-template-columns: 1.6fr 1.8fr 1fr 1fr;
+    margin: 20px 0 60px;
+
+    &--full {
+      display: block;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 10px;
+
+    &-title {
+      @include font-size(rem(17px), 500, 1.2);
+    }
+
+    &-text {
+      @include font-size(rem(17px), 300, 1.2);
+
+      &-list {
+        @include font-size(rem(17px), 300, 1.2);
+        list-style-position: inside;
+        padding-left: 12px;
+        
+        &-item {
+
+        }
+      }
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .boxes-graph__item-svg-arrow {
+      &-1 {
+        width: calc(100% + 54%);
+        height: calc(100% + 60px);
+      }
+      &-2 {
+        height: calc(100% + 60px);
+      }
+      &-3 {
+        width: calc(100% + 80%);
+        right: 0;
+        left: unset;
+        height: calc(100% + 60px);
+      }
+      &-4 {
+        width: calc(100% + 120%);
+        right: 0;
+        left: unset;
+        height: calc(100% + 60px);
+      }
+    }
+  }
+}

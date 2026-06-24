@@ -29,6 +29,7 @@ export default defineConfig(({ mode }) => {
           main: resolve(__dirname, 'index.html'),
           smartFridgePlan: resolve(__dirname, 'smart-fridge-plan.html'),
           robot: resolve(__dirname, 'learning-interface-of-robot-pepper.html'),
+          elearning: resolve(__dirname, 'elearning.html'),
           // Add more HTML entry points here as needed
           // about: resolve(__dirname, 'about.html'),
           // portfolio: resolve(__dirname, 'portfolio.html'),

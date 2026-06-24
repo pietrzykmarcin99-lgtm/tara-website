@@ -9,6 +9,7 @@
   border: 2px solid $color-blue-button;
   border-radius: 13px;
   margin: 0 40px 30px;
+  background-color: $color-white;
 
   h2 {
     @include font-size(rem(19px), 400);
@@ -22,5 +23,24 @@
   li {
     margin: 0 0 12px;
     @include font-size(rem(12px), 300);
+    position: relative;
+    padding: 0 0 0 20px;
+
+    svg {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &--purple {
+    border-color: $color-violet-light;
+
+    .my-role-mobile-box__svg svg path {
+      fill: $color-violet-light;
+    }
+
+    li svg path {
+      fill: $color-violet-light;
+    }
   }
 }

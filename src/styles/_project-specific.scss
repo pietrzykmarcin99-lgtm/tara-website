@@ -12,6 +12,10 @@
   .project-header {
     background-color: $color-violet-light3;
 
+    @include mobile {
+      margin: 0 0 48px;
+    }
+
     &__my-role {
       flex-shrink: 1;
     }
@@ -45,6 +49,55 @@
         fill: $color-green2;
       }
     }
+  }
+
+}
+
+.project-page--elearning {
+  overflow-x: clip;
+
+  @supports not (overflow: clip) {
+    overflow-x: hidden;
+  }
+
+  .project-header {
+    background-color: $color-orange3;
+
+    // @include mobile {
+    //   margin: 0 0 48px;
+    // }
+
+    &__my-role {
+      flex-shrink: 1;
+    }
+
+    &__image {
+      align-self: center;
+      margin: 20px 0 20px 55px;
+      height: 314px;
+      aspect-ratio: 1 / 1;
+
+      @include mobile {
+        margin: -4px 0 -4px 0px;
+        aspect-ratio: unset;
+        height: 306px;
+        width: auto;
+        object-fit: scale-down;
+        object-position: left;
+      }
+    }
+
+    &__texts-sub {
+      color: $color-white;
+    }
+  }
+
+  .project-timeline__arrow-progress svg path, .project-timeline__icon svg path {
+      fill: $color-orange3;
+  }
+
+  .project-timeline {
+    --project-timeline-marker-color: #{$color-orange3};
   }
 
 }

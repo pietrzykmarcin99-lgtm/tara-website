@@ -1,0 +1,30 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.content-table {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 60px 40px;
+  max-width: 1200px;
+
+
+  &__title {
+    margin: 0;
+    @include font-size(17px, 400, 1.2);
+
+    &--margin-top-extended {
+      margin-top: 40px;
+    }
+  }
+
+  &__content {
+    p {
+      @include font-size(17px, 300, 1.2);
+      margin: 0;
+
+      strong {
+        font-weight: 500;
+      }
+    }
+  }
+}

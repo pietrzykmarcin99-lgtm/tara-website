@@ -2,7 +2,7 @@
 import gsap from 'gsap';
 
 export function initButtonDecors(): void {
-	const buttons = document.querySelectorAll<HTMLButtonElement>('.slider__modal button');
+	const buttons = document.querySelectorAll<HTMLButtonElement>('.slider__modal button,.slider__modal a');
 console.log('Initializing button decor animations for', buttons.length, 'buttons');
 	buttons.forEach((button) => {
 		if (button.dataset.decorAnimationInitialized === 'true') {

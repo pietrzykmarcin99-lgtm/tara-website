@@ -13,4 +13,39 @@
       margin-bottom: 80px;
     }
   }
+
+  .poster-modal {
+    position: fixed;
+    top: var(--project-modal-top-offset, 0px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    overflow-y: auto;
+    background: rgba($color-white, 0.98);
+    padding: 50px 90px;
+    display: none;
+
+    @include mobile {
+      padding: 0 5px;
+    }
+
+    &.is-open {
+      display: block;
+    }
+
+    &__content {
+      width: 100%;
+
+      > img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+}
+
+body.poster-modal-open {
+  overflow: hidden;
 }

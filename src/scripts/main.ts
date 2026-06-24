@@ -8,9 +8,11 @@ import { initScrollTo } from './modules/scroll-to';
 import { initMobileFullscreenImage } from './modules/mobile-fullscreen-image';
 import { initRobotBackgroundWidth } from './modules/robot-background-width';
 import { initTabletSlider } from './modules/tablet-slider.ts';
+import { initProjectPosterModal } from './modules/project-poster-modal';
 import { log } from './utils/logger';
 import { initProjectPageAnimations } from './modules/animations/project-page';
 import { initSmartFridgeAnimations } from './modules/animations/smart-fridge';
+import { initElearningAnimations } from './modules/animations/elearning.ts';
 // Initialize the application
 function init(): void {
   document.documentElement.classList.remove('js-loading');
@@ -28,8 +30,10 @@ function init(): void {
   initRobotBackgroundWidth();
   initTabletSlider();
   initScrollTo();
+  initProjectPosterModal();
   initProjectPageAnimations();
   initSmartFridgeAnimations();
+  initElearningAnimations();
   
   log('Portfolio website initialized successfully!');
 }

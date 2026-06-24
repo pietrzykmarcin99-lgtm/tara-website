@@ -1,6 +1,6 @@
 export function initVideo(): void {
   const videos = document.querySelectorAll<HTMLVideoElement>(
-    '.prototype-with-mobile-screens__video, .video-section-mobile__video'
+    '.prototype-with-mobile-screens__video, .video-section-mobile__video, .tablet-slider__video'
   );
   
   videos.forEach(video => {

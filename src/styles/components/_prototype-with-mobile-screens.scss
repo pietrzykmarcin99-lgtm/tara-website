@@ -35,7 +35,7 @@
     position: absolute;
     width: max-content;
     left: calc(100% + 100px);
-    top: -42px;
+    top: -86px;
 
     p {
       color: $color-pink-text2;
@@ -52,8 +52,12 @@
 
   &__decor-1 {
     position: absolute;
-    top: 20px;
-    left: -50px;
+    top: 50px;
+    left: -90px;
+
+    svg {
+      transform: rotate(-30deg);
+    }
   }
 
   &__decor-2 {
@@ -61,16 +65,21 @@
     bottom: 0;
     right: 0;
 
+    svg {
+      transform: rotate(-30deg);
+    }
+
     @include smaller-desktop {
       bottom: 10px;
-      right: -60px;
+      right: -100px;
     }
   }
 
   &__mobile-screens {
     display: flex;
     flex-direction: column;
-    padding: 40px 0 0;
+    padding: 0;
+    margin-top: -20px;
   }
 
   &__mobile-screen {

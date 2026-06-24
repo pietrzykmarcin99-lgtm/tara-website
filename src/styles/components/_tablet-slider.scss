@@ -9,7 +9,7 @@
   position: relative;
   width: var(--tablet-slider-width);
   max-width: 730px;
-  margin: 80px auto 100px;
+  margin: 40px auto 100px;
   transform: translateX(-60px);
 
   &__stack {
@@ -42,8 +42,8 @@
     display: block;
     width: 100%;
     height: 100%;
-    max-width: 730px;
-    max-height: 500px;
+    max-width: var(--tablet-slider-width);
+    max-height: var(--tablet-slider-height);
     object-fit: contain;
   }
 
@@ -117,16 +117,29 @@
   }
 
   @include smaller-desktop {
-    --tablet-slider-width: min(730px, calc(100vw - 120px));
-    --tablet-slider-height: min(500px, calc((100vw - 120px) * 1.46));
-    --tablet-slider-arrow-offset: 8px;
+    --tablet-slider-width: min(500px, calc(100vw - 120px));
+    --tablet-slider-height: min(450px, calc((100vw - 120px) * 1.46));
+    --tablet-slider-arrow-offset: 40px;
+
+    transform: translateX(-100px);
   }
 
-  @media (max-width: 768px) {
-    --tablet-slider-width: min(730px, calc(100vw - 40px));
-    --tablet-slider-height: min(500px, calc((100vw - 40px) * 1.46));
+  @include mobile {
+    --tablet-slider-width: 100%;
+    transform: translateX(0);
+    margin: 0 auto 48px;
 
-    margin-top: 20px;
+    .tablet-slider__stack {
+      height: auto;
+      aspect-ratio: 1 / 0.8;
+      display: flex;
+      align-items: center;
+    }
+
+    .tablet-slider__image {
+      height: 100%;
+      object-fit: scale-down;
+    }
 
     &__arrow {
       &--left {
@@ -158,5 +171,135 @@
       margin-right: 80px;
       margin-top: 16px;
     }
+  }
+
+  &__mobile-texts {
+    h2 {
+      @include font-size(24px, 500);
+      text-align: center;
+      margin: 0 0 16px;
+    }
+
+    p {
+      @include font-size(13px, 400);
+      text-align: center;
+      margin: 0 0 14px;
+    }
+  }
+
+  &__mobile-wrapper {
+    position: relative;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  &__background-image {
+    &--robot {
+      position: relative;
+
+      img {
+        left: 50%;
+        top: 50%;
+        width: auto;
+        height: 1000px;
+        z-index: -1;
+        transform: translate(-50%, -40%);
+        filter: blur(3px);
+        opacity: 0.75;
+        --robot-image-mask-top-offset: -120px;
+        --robot-mask-side-fade-distance: 170px;
+        max-width: unset;
+        position: absolute;
+        z-index: -1;
+        --robot-mask-fade-distance: 400px;
+        -webkit-mask-image:
+          linear-gradient(to bottom, transparent 0, #000 var(--robot-mask-fade-distance)),
+          linear-gradient(to right, transparent 0, #000 var(--robot-mask-side-fade-distance), #000 calc(100% - var(--robot-mask-side-fade-distance)), transparent 100%);
+        mask-image:
+          linear-gradient(to bottom, transparent 0, #000 var(--robot-mask-fade-distance)),
+          linear-gradient(to right, transparent 0, #000 var(--robot-mask-side-fade-distance), #000 calc(100% - var(--robot-mask-side-fade-distance)), transparent 100%);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+        -webkit-mask-composite: source-in;
+        mask-composite: intersect;
+        -webkit-mask-position: 0 calc(var(--robot-image-mask-top-offset) * -1);
+        mask-position: 0 calc(var(--robot-image-mask-top-offset) * -1);
+      }
+    }
+  }
+
+  &__video {
+    position: absolute;
+    z-index: 10;
+
+    &--monitor {
+      top: 15px;
+      left: 59px;
+      width: 611px;
+      height: 343px;
+
+      @include smaller-desktop {
+        top: 37px;
+        left: 6px;
+        width: 487px;
+        height: 274px;
+      }
+    }
+
+    &-call-to-action-arrow {
+      top: 210px;
+      position: absolute;
+      z-index: 12;
+      left: -20px;
+
+      @include smaller-desktop {
+        left: -80px;
+        top: 100px;
+      }
+
+      svg {
+        transform: translateX(100px);
+
+        @include smaller-desktop {
+          transform: translate(70px, 50px) scale(0.7);
+        }
+      }
+
+      p {
+        @include font-size(rem(32px), 500, 1.2);
+        margin: 10px 0 0;
+        color: $color-orange4;
+        text-align: center;
+        
+        @include smaller-desktop {
+          @include font-size(rem(24px), 500, 1.2);
+        }
+      }
+    }
+  }
+
+
+  &--green {
+    .tablet-slider {
+      &__arrow {
+        top: 40%;
+  
+        svg circle{
+          fill: $color-green3;
+        }
+      }
+
+      &__decor {
+        > p {
+          color: $color-green3;
+        }
+        svg path {
+          fill: $color-green3;
+         }
+      }
+    }
+    
   }
 }

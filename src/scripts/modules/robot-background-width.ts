@@ -27,9 +27,9 @@ function updateImageWidth(img: HTMLImageElement): void {
 }
 
 export function initRobotBackgroundWidth(): void {
-  const image = document.querySelector<HTMLImageElement>(SELECTOR);
+  const images = document.querySelectorAll<HTMLImageElement>(SELECTOR);
 
-  if (!image) {
+  if (!images.length) {
     return;
   }
 
@@ -42,7 +42,7 @@ export function initRobotBackgroundWidth(): void {
 
     rafId = window.requestAnimationFrame(() => {
       rafId = null;
-      updateImageWidth(image);
+      images.forEach(updateImageWidth);
     });
   };
 
@@ -50,9 +50,11 @@ export function initRobotBackgroundWidth(): void {
   scheduleUpdate();
 
   // Re-run once the image is fully loaded if needed.
-  if (!image.complete) {
-    image.addEventListener('load', scheduleUpdate, { once: true });
-  }
+  images.forEach((image) => {
+    if (!image.complete) {
+      image.addEventListener('load', scheduleUpdate, { once: true });
+    }
+  });
 
   window.addEventListener('resize', scheduleUpdate, { passive: true });
   window.addEventListener('orientationchange', scheduleUpdate, { passive: true });

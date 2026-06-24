@@ -10,6 +10,7 @@
   box-shadow: 1px 3px 4px 0 rgba(0, 0, 0, 0.19);
   transition: background-color 0.3s ease;
   position: relative;
+  text-decoration: none;
 
   &--pink {
     background-color: $color-pink-light;
@@ -78,6 +79,41 @@
     }
     &:nth-child(2) {
       right: -20px;
+    }
+  }
+
+  &-big-with-shadow {
+    border: none;
+    border-radius: 70px;
+    padding: 16px 24px;
+    transform: translateZ(0);
+    transform-origin: center;
+    backface-visibility: hidden;
+    will-change: transform;
+    transition: all 0.22s ease-out;
+    @include font-size(rem(20px), 400);
+
+    @include mobile {
+      @include font-size(rem(16px), 400);
+      padding: 10px 16px;
+    }
+    
+    &:hover {
+      transform: translateZ(0) scale(1.04);
+    }
+    
+    &--purple {
+      color: $color-white;
+      background-color: $color-violet-light;
+      box-shadow: 0 6px 0 0 $color-violet-dark2;
+
+      @include mobile {
+        box-shadow: 0 3px 0 0 $color-violet-dark2;
+      }
+
+      &:hover {
+        background-color: $color-violet-dark3
+      }
     }
   }
 }

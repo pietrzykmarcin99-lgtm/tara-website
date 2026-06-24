@@ -56,3 +56,9 @@ button {
   border-radius: 14px;
   padding: 8px;
 }
+
+@for $i from 3 through 48 {
+  .mb-#{$i * 2} {
+    margin-bottom: #{$i * 2}px;
+  }
+}
