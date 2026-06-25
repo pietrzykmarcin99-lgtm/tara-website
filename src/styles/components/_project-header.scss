@@ -22,6 +22,12 @@
   @include mobile {
     gap: 15px;
   }
+
+  &--mobile-mb-extended {
+    @include mobile {
+      margin: 0 0 48px;
+    }
+  }
   
 
   &__image {
@@ -126,7 +132,6 @@
           content: "prototype";
          }
       }
-
 
       &:hover {
         width: 140px;

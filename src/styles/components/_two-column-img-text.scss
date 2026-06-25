@@ -15,7 +15,15 @@
       height: 450px;
       object-fit: cover;
       border-radius: 20px;
+    }
 
+    &--normal {
+      img {
+        object-fit: scale-down;
+        border-radius: 0px;
+        object-position: top;
+        margin-top: 32px;
+      }
     }
   }
 

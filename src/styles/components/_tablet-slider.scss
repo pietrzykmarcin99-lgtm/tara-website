@@ -283,6 +283,27 @@
     }
   }
 
+  &__used-technology {
+    position:absolute;
+
+    right: -150px;
+    bottom: 0;
+    display: flex;
+    gap: 20px;
+    z-index: 12;
+    align-items: center;
+
+    @include smaller-desktop {
+      right: -240px;
+    }
+
+    p {
+      @include font-size(rem(18px), 300, 1.2);
+      margin: 0;
+      text-align: left;
+    }
+  }
+
 
   &--green {
     .tablet-slider {

@@ -1,0 +1,28 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.checkmark-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 1200px;
+
+  &__wrapper {
+    h3 {
+      @include font-size(rem(18px), 500, 1.2);
+      margin: 0 0 2px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    img {
+      height: 300px;
+      object-fit: scale-down;
+    }
+  }
+
+  &__image--margin-top-extended {
+    margin-top: 18px;
+  }
+}

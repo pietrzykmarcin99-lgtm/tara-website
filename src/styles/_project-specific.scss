@@ -12,10 +12,6 @@
   .project-header {
     background-color: $color-violet-light3;
 
-    @include mobile {
-      margin: 0 0 48px;
-    }
-
     &__my-role {
       flex-shrink: 1;
     }
@@ -98,6 +94,12 @@
 
   .project-timeline {
     --project-timeline-marker-color: #{$color-orange3};
+  }
+
+  .toggleable-sections {
+     .toggleable-section__icon svg path {
+      fill: $color-orange3;
+     }
   }
 
 }

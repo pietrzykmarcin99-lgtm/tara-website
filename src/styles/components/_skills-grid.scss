@@ -1,0 +1,18 @@
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: 26px;
+  grid-auto-rows: 120px;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    object-fit: scale-down;
+  }
+}
