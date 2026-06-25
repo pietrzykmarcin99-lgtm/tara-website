@@ -7,6 +7,11 @@
   gap: 60px 40px;
   max-width: 1200px;
 
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
   &__title {
     margin: 0;
@@ -18,13 +23,32 @@
   }
 
   &__content {
+    @include mobile {
+      margin: 0 0 30px;
+    }
+
     p {
       @include font-size(17px, 300, 1.2);
       margin: 0;
+
+      @include mobile {
+        @include font-size(11px, 300, 1.2);
+      }
 
       strong {
         font-weight: 500;
       }
     }
+    &--flex-images-mobile  {
+      display: flex;
+      gap: 10px 8px;
+      flex-wrap: wrap;
+      img {
+        height: 80px;
+        width: 55px;
+      }
+    }
+  
   }
+
 }
