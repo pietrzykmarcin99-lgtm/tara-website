@@ -7,6 +7,14 @@
   gap: 8px;
   max-width: 1200px;
 
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 20px;
+    // align-items: center;
+  }
+
   &__wrapper {
     h3 {
       @include font-size(rem(18px), 500, 1.2);
@@ -14,11 +22,21 @@
       display: flex;
       align-items: center;
       gap: 12px;
+
+      @include mobile {
+        @include font-size(rem(12px), 500, 2);
+        gap: 6px;
+      }
     }
 
     img {
       height: 300px;
       object-fit: scale-down;
+
+      @include mobile {
+        height: auto;
+        max-height: 300px;
+      }
     }
   }
 

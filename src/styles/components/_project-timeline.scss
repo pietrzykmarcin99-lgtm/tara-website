@@ -466,10 +466,20 @@
     gap: 40px;
   }
 
-  &__content &__content-bordered-p {
+  &__content-bordered-p {
+    padding: 8px;
     margin: 0 0 20px;
     position: relative;
     line-height: 1.2;
+    
+    @include mobile {
+      margin: 0 6px 20px;
+      @include font-size(rem(11px), 300, 1.2);
+
+      strong {
+        font-weight: 500;
+      }
+    }
 
     svg {
       position: absolute;
@@ -479,15 +489,15 @@
       top: -4px;
       z-index: -1;
     }
-  }
-
-  &__content-bordered-p {
-    padding: 8px;
 
     &--with-image {
       display: flex;
       gap: 12px;
       align-items: center;
+
+      @include mobile {
+        align-items: flex-start;
+      }
     }
   }
 

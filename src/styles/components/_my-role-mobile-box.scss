@@ -3,10 +3,20 @@
 
 
 .my-role-mobile-box {
+  --lead-color: #{$color-blue-button};
+  
+  &--purple {
+    --lead-color: #{$color-violet-light};
+  }
+
+  &--green {
+    --lead-color: #{$color-green3};
+  }
+  
   padding: 30px 34px 21px 21px;
   display: flex;
   gap: 21px;
-  border: 2px solid $color-blue-button;
+  border: 2px solid var(--lead-color);
   border-radius: 13px;
   margin: 0 40px 30px;
   background-color: $color-white;
@@ -29,18 +39,14 @@
     svg {
       position: absolute;
       left: 0;
+
+      path {
+        fill: var(--lead-color);
+      }
     }
   }
 
-  &--purple {
-    border-color: $color-violet-light;
-
-    .my-role-mobile-box__svg svg path {
-      fill: $color-violet-light;
-    }
-
-    li svg path {
-      fill: $color-violet-light;
-    }
+  .my-role-mobile-box__svg svg path {
+      fill: var(--lead-color);
   }
 }

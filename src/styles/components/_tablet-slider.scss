@@ -246,6 +246,13 @@
         width: 487px;
         height: 274px;
       }
+
+      @include mobile {
+        top: 9px;
+        left: 4px;
+        width: 330px;
+        height: 187px;
+      }
     }
 
     &-call-to-action-arrow {
@@ -324,6 +331,16 @@
          }
       }
     }
-    
+  }
+
+  &--mobile-monitor {
+    padding: 0 18px;
+
+    .tablet-slider {
+      &__dots {
+        margin: 0 0 10px;
+      }
+    }
+
   }
 }

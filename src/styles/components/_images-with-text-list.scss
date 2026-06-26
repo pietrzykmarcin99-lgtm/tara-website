@@ -1,0 +1,20 @@
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.images-with-text-list {
+  &__item {
+    display: flex;
+    gap: 18px;
+    margin: 0 0 24px;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    @include font-size(12px, 300, 1.5);
+  }
+}
