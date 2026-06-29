@@ -1,0 +1,30 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.flows-with-titles {
+  margin: 40px 0 0;
+  &__flow {
+    &-title {
+      @include font-size(20px, 300, 1.2);
+      color: $text-color;
+      margin: 0 0 16px;
+
+      strong {
+        font-weight: 600;
+        color: $color-teal;
+      }
+    }
+
+    &-img {
+      margin: 0 0 20px;
+    }
+
+    &:nth-child(1) h3 {
+      margin: 0 0 20px 14px;
+    }
+
+    &:nth-child(2) h3 {
+      margin: 0 0 20px 8px;
+    }
+  }
+}

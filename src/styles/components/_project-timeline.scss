@@ -297,6 +297,21 @@
         max-height: 350px;
       }
     }
+
+    &-two-columns-texts {
+      display: grid;
+      grid-template-columns: 0.6fr 1fr;
+      gap: 40px;
+
+      p {
+        @include font-size(17px, 300, 23px);
+        color: $text-color;
+      }
+      
+      strong {
+        font-weight: 400;
+      }
+    }
   }
 
 

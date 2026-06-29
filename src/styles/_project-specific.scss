@@ -1,7 +1,9 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+// PROJECT SPECIFIC STYLES
 
+// ROBOT PEPPER
 .project-page--robot-pepper {
   overflow-x: clip;
 
@@ -49,6 +51,7 @@
 
 }
 
+// ELEARNING
 .project-page--elearning {
   overflow-x: clip;
 
@@ -99,6 +102,68 @@
   .toggleable-sections {
      .toggleable-section__icon svg path {
       fill: $color-orange3;
+     }
+  }
+
+}
+
+// ELEARNING
+.project-page--reinvinted {
+  overflow-x: clip;
+
+  @supports not (overflow: clip) {
+    overflow-x: hidden;
+  }
+
+  .project-header {
+    background-color: $color-teal-light2;
+
+    // @include mobile {
+    //   margin: 0 0 48px;
+    // }
+
+    &__my-role {
+      flex-shrink: 1;
+    }
+
+    &__image {
+      align-self: center;
+      margin: 20px 0 20px 55px;
+      height: 238px;
+
+      @include mobile {
+        margin: 0 10px 0;
+        height: 180px;
+        width: auto;
+        object-fit: scale-down;
+        object-position: left;
+      }
+    }
+
+    &__my-role-vector-border path, &__my-role-tara-vector path {
+      fill: $color-teal2;
+    }
+
+    &__my-role ul li svg path {
+      fill: $color-teal2;
+    }
+
+    &__texts-sub {
+      color: $color-teal;
+    }
+  }
+
+  .project-timeline__arrow-progress svg path, .project-timeline__icon svg path {
+      fill: $color-teal2;
+  }
+
+  .project-timeline {
+    --project-timeline-marker-color: #{$color-teal2};
+  }
+
+  .toggleable-sections {
+     .toggleable-section__icon svg path {
+      fill: $color-teal2;
      }
   }
 
