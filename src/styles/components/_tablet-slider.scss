@@ -30,6 +30,10 @@
     z-index: 1;
     transition: opacity 1s ease;
 
+    &-video-wrapper {
+      position: relative;
+    }
+
     &.is-active {
       opacity: 1;
       visibility: visible;
@@ -248,10 +252,11 @@
       }
 
       @include mobile {
-        top: 9px;
-        left: 4px;
-        width: 330px;
-        height: 187px;
+        height: 69%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 13px;
+        width: auto;
       }
     }
 
@@ -269,11 +274,22 @@
         top: 100px;
       }
 
+      @include mobile {
+        left: 5px;
+        bottom: 0px;
+        top: unset;
+      }
+
       svg {
         transform: translateX(100px);
 
         @include smaller-desktop {
           transform: translate(70px, 50px) scale(0.7);
+        }
+
+        @include mobile {
+          transform: none;
+          margin-left: 50px;
         }
       }
 
@@ -285,6 +301,12 @@
         
         @include smaller-desktop {
           @include font-size(rem(24px), 500, 1.2);
+        }
+
+        @include mobile {
+          @include font-size(rem(16px), 500, 1.2);
+          margin: 0;
+          color: $color-green4;
         }
       }
     }
@@ -323,6 +345,8 @@
       }
 
       &__decor {
+        top: -50px;
+
         > p {
           color: $color-green3;
         }
@@ -330,6 +354,10 @@
           fill: $color-green3;
          }
       }
+    }
+
+    @include smaller-desktop {
+      --tablet-slider-arrow-offset: 50px;
     }
   }
 

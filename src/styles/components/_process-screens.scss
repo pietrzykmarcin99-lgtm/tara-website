@@ -1,0 +1,81 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+.process-screens {
+  display: flex;
+  gap: 235px;
+
+  &__screen {
+    position: relative;
+
+    &-img {
+      z-index: -1;
+      position: relative;
+    }
+  }
+
+  &__screen-description {
+    position: absolute;
+    top: 35%;
+    left: 100%;
+    transform: translateY(-50%);
+
+    ul {
+      position: relative;
+      z-index: 3;
+      list-style: none;
+      padding: 14px 10px;
+      width: 200px;
+
+      @include smaller-desktop {
+        padding: 6px;
+        width: 180px;
+
+      }
+
+      li {
+        display: flex;
+        gap: 8px;
+        margin: 0 0 8px;
+        @include font-size(14px, 300, 19px);
+
+        @include smaller-desktop {
+          @include font-size(12px, 300, 19px);
+        }
+
+        svg {
+          flex-shrink: 0;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    &-cover {
+      position: absolute;
+      left: -10px;
+      top: -10px;
+      z-index: 1;
+      width: calc(100% + 20px);
+      height: calc(100% + 50px);
+
+      @include smaller-desktop {
+
+      }
+  }
+
+    &-arrow-next {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+
+      @include smaller-desktop {
+        height: 60px;
+        right: -60px;
+
+      }
+    }
+  }
+}

@@ -105,9 +105,13 @@
      }
   }
 
+  .two-column-img-text  {
+    margin: 20px 0 0 -70px;
+  }
+
 }
 
-// ELEARNING
+// REINVINTED
 .project-page--reinvinted {
   overflow-x: clip;
 
@@ -122,6 +126,10 @@
     //   margin: 0 0 48px;
     // }
 
+    @include mobile {
+      margin: 0 0 32px;
+    }
+
     &__my-role {
       flex-shrink: 1;
     }
@@ -133,7 +141,7 @@
 
       @include mobile {
         margin: 0 10px 0;
-        height: 180px;
+        height: 150px;
         width: auto;
         object-fit: scale-down;
         object-position: left;
@@ -165,6 +173,17 @@
      .toggleable-section__icon svg path {
       fill: $color-teal2;
      }
+
+    .toggleable-section__numeric-containers-header {
+      h3 strong {
+        color: $color-teal;
+      }
+     }
   }
 
+  .video-section-mobile {
+    p {
+        color: $color-teal;
+    }
+  }
 }

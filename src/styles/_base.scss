@@ -57,6 +57,12 @@ button {
   padding: 8px;
 }
 
+.teal-image-container {
+  border: 1px solid $color-teal2-opacity;
+  border-radius: 14px;
+  padding: 8px;
+}
+
 @for $i from 3 through 48 {
   .mb-#{$i * 2} {
     margin-bottom: #{$i * 2}px;

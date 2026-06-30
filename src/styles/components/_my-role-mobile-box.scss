@@ -12,6 +12,10 @@
   &--green {
     --lead-color: #{$color-green3};
   }
+
+  &--teal {
+    --lead-color: #{$color-teal};
+  }
   
   padding: 30px 34px 21px 21px;
   display: flex;

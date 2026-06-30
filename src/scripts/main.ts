@@ -13,6 +13,9 @@ import { log } from './utils/logger';
 import { initProjectPageAnimations } from './modules/animations/project-page';
 import { initSmartFridgeAnimations } from './modules/animations/smart-fridge';
 import { initElearningAnimations } from './modules/animations/elearning.ts';
+import { initProcessScreensAnimations } from './modules/animations/process-screens';
+import { initPrototypeWithMobileScreens } from './modules/animations/prototype-with-mobile-screens';
+import { initScreenIterations } from './modules/animations/screen-iterations';
 // Initialize the application
 function init(): void {
   document.documentElement.classList.remove('js-loading');
@@ -34,6 +37,9 @@ function init(): void {
   initProjectPageAnimations();
   initSmartFridgeAnimations();
   initElearningAnimations();
+  initProcessScreensAnimations();
+  initPrototypeWithMobileScreens();
+  initScreenIterations();
   
   log('Portfolio website initialized successfully!');
 }
