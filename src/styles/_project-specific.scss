@@ -187,3 +187,97 @@
     }
   }
 }
+
+
+//COOKING ADVENTURE
+
+.project-page--cooking-adventure {
+  overflow-x: clip;
+
+  @supports not (overflow: clip) {
+    overflow-x: hidden;
+  }
+
+  .project-header {
+    background-color: $color-salmon;
+
+    // @include mobile {
+    //   margin: 0 0 48px;
+    // }
+
+    @include mobile {
+      margin: 0 0 32px;
+      padding: 0;
+    }
+
+    &__texts {
+      @include mobile {
+        padding: 10px 14px 30px 0;
+      }
+    }
+
+    &__my-role {
+      flex-shrink: 1;
+    }
+
+    &__to-prototype-button {
+      background-color: $color-green5;
+    }
+
+    &__image {
+      // align-self: center;
+      // margin: 20px 0 20px 55px;
+      // height: 238px;
+
+      // @include mobile {
+      //   margin: 0 10px 0;
+      //   height: 150px;
+      //   width: auto;
+      //   object-fit: scale-down;
+      //   object-position: left;
+      // }
+    }
+
+    &__my-role-vector-border path, &__my-role-tara-vector path {
+      fill: $color-white;
+    }
+
+    &__my-role ul li svg path {
+      fill: $color-white;
+    }
+
+    &__texts-sub {
+      color: $color-white;
+    }
+  }
+
+  .project-timeline__arrow-progress svg path, .project-timeline__icon svg path {
+      fill: $color-green5;
+  }
+
+  .project-timeline {
+    --project-timeline-marker-color: #{$color-green5};
+  }
+
+  .toggleable-sections {
+     .toggleable-section__icon svg path {
+      fill: $color-green5;
+     }
+
+    .toggleable-section__numeric-containers-header {
+      h3 strong {
+        color: $color-green5;
+      }
+     }
+  }
+
+  .video-section-mobile {
+    p {
+        color: $color-green5;
+    }
+  }
+
+  .project-timeline__content-addition--with-blue-frame {
+    margin-top: 40px;
+  }
+}

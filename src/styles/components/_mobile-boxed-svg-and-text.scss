@@ -1,0 +1,23 @@
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.mobile-boxed-svg-and-text {
+  padding: 6px;
+  position: relative;
+  display: flex;
+  gap: 0;
+  @include font-size(11px, 300, 1.2);
+
+  &__image {
+    flex-shrink: 0;
+  }
+
+  &__box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -13,6 +13,10 @@
     --lead-color: #{$color-green3};
   }
 
+  &--green-darker {
+    --lead-color: #{$color-green5};
+  }
+
   &--teal {
     --lead-color: #{$color-teal};
   }

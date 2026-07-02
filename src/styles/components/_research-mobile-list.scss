@@ -1,0 +1,36 @@
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.research-mobile-list {
+  list-style: none;
+
+
+  li {
+    display: flex;
+    gap: 15px;
+    margin: 0 0 26px;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  p {
+    @include font-size(12px, 300, 1.2);
+    margin: 0;
+
+    strong {
+      font-weight: 500;
+    } 
+
+    small {
+      @include font-size(7px, 300, 1.2);
+      a {
+        color: $color-blue-border2;
+        font-weight: 400;
+      }
+    }
+  }
+
+}

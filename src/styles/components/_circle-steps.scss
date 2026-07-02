@@ -29,6 +29,30 @@
     top: -12px;
   }
 
+  &--bigger {
+    gap: 6px;
+
+    li:not(.circle-steps__connector-arrow) {
+      width: 80px;
+      height: 70px;
+      justify-content: center;
+    }
+
+    .circle-steps {
+
+      &__circle {
+        width: 100px;
+        height: 90px;
+      }
+    }
+  }
+
+  &--orange {
+    svg path {
+      fill: $color-orange3;
+    }
+  }
+
   &__arrow-between {
     // position: absolute;
     // top: 50%;

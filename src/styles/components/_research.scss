@@ -1,0 +1,33 @@
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.research {
+  margin-top: 40px;
+  max-width: 1200px;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 70px 0.8fr 1fr;
+    gap: 24px;
+    list-style-type: none;
+    margin: 0 0 24px;
+  }
+
+  &__text {
+    @include font-size(rem(17px), 300, 1.2);
+    padding-top: 10px;
+
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  &__authors {
+    padding-left: 40px;
+    padding-top: 10px;
+    color: $text-color-gray4;
+    @include font-size(rem(14px), 300, 1.2);
+  }
+}

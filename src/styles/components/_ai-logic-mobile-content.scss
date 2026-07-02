@@ -39,4 +39,8 @@
       @include font-size(rem(11px), 300, 1.2);
     }
   }
+
+  &__text-gray {
+    color: $text-color-gray5;
+  }
 } 

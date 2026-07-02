@@ -37,4 +37,10 @@
       padding: 0 0 0 25px;
     }
   }
+
+  &--green {
+    p {
+      color: $color-green6;
+    }
+  }
 }

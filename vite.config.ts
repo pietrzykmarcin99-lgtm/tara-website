@@ -31,6 +31,8 @@ export default defineConfig(({ mode }) => {
           robot: resolve(__dirname, 'learning-interface-of-robot-pepper.html'),
           elearning: resolve(__dirname, 'elearning.html'),
           reinvinted: resolve(__dirname, 'reinvinted.html'),
+          cookingAdventure: resolve(__dirname, 'cooking-adventure.html'),
+          
           // Add more HTML entry points here as needed
           // about: resolve(__dirname, 'about.html'),
           // portfolio: resolve(__dirname, 'portfolio.html'),

@@ -43,10 +43,19 @@
       display: flex;
       gap: 10px 8px;
       flex-wrap: wrap;
-      img {
-        height: 80px;
-        width: 55px;
+
+      &-smaller {
+        img {
+          width: 40px;
+          aspect-ratio: 1/1;
+          object-fit: scale-down;
+        }
       }
+    }
+
+    &-images-row {
+      display: flex;
+      gap: 18px;
     }
   
   }

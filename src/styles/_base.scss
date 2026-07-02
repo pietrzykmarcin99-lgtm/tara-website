@@ -67,4 +67,7 @@ button {
   .mb-#{$i * 2} {
     margin-bottom: #{$i * 2}px;
   }
+  .mt-#{$i * 2} {
+    margin-top: #{$i * 2}px;
+  }
 }
