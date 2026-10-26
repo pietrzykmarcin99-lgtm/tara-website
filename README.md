@@ -1,198 +1,155 @@
 # UX/UI Designer Portfolio
 
-A modern, performant personal website built with TypeScript, SASS, and Vite.
+Personal portfolio website for a UX/UI designer, built with TypeScript, SASS and Vite. It is a multi-page static site: a homepage plus one page per case study.
 
-## 🚀 Features
+## Pages
 
-- ✅ **TypeScript** - Type-safe JavaScript with full IntelliSense support
-- ✅ **SASS/SCSS** - Modular, maintainable stylesheets with variables, mixins, and nesting
-- ✅ **Vite** - Lightning-fast development server and optimized production builds
-- ✅ **Code Splitting** - Organize TS and SASS into smaller, maintainable modules
-- ✅ **Minification** - Automatic minification for production builds
-- ✅ **Single Output Files** - One CSS file and one JS file for optimal performance
+| File | Description |
+| --- | --- |
+| `index.html` | Homepage (hero, recent work, slider, "this is me", contact) |
+| `smart-fridge-plan.html` | Smart fridge / smart meal case study |
+| `learning-interface-of-robot-pepper.html` | Learning interface of robot Pepper case study |
+| `elearning.html` | E-learning case study |
+| `reinvinted.html` | Reinvinted case study |
+| `cooking-adventure.html` | Cooking adventure case study |
 
-## 📁 Project Structure
+`smart-fridge-plan copy.html` is a leftover copy that is not part of the build (see [Adding a page](#adding-a-page)).
+
+## Tech Stack
+
+- **Vite 5** - dev server and bundler
+- **TypeScript 5** (strict mode) - all site logic
+- **SASS** - modular stylesheets, one SCSS partial per component
+- **GSAP 3** - animations
+- **Terser** - production minification (`console` and `debugger` are stripped in production)
+- **Lexend** - font, loaded from Google Fonts
+
+## Project Structure
 
 ```
 tara/
+├── index.html, *.html            # Pages (each is a Vite entry point)
+├── public/                       # Static assets, copied as-is to dist/
+│   ├── icons/
+│   └── images/                   # portfolio, project/<name>, recent-work, this-is-me
 ├── src/
-│   ├── scripts/           # TypeScript files
-│   │   ├── main.ts        # Main entry point
-│   │   ├── modules/       # Feature modules
-│   │   │   ├── navigation.ts
-│   │   │   └── animations.ts
-│   │   └── utils/         # Utility functions
-│   │       └── logger.ts
-│   └── styles/            # SASS files
-│       ├── main.scss      # Main SASS entry point
-│       ├── _variables.scss
-│       ├── _mixins.scss
+│   ├── scripts/
+│   │   ├── main.ts               # Single JS entry used by every page
+│   │   ├── modules/              # Feature modules (slider, video, modals, navigation, ...)
+│   │   │   └── animations/       # GSAP animations per section / project page
+│   │   └── utils/logger.ts
+│   └── styles/
+│       ├── main.scss             # Single SCSS entry, @use's everything
+│       ├── _variables.scss       # Colors, fonts, breakpoints
+│       ├── _mixins.scss          # Responsive and layout mixins
 │       ├── _base.scss
-│       └── components/    # Component styles
-│           ├── _header.scss
-│           └── _footer.scss
-├── dist/                  # Build output (generated)
-├── index.html             # Main HTML file
-├── vite.config.ts         # Vite configuration
-├── tsconfig.json          # TypeScript configuration
-└── package.json           # Dependencies and scripts
+│       ├── _project-specific.scss
+│       └── components/           # One partial per component
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
 ```
 
-## 🛠️ Getting Started
+## Getting Started
 
-### Prerequisites
-
-- Node.js (v18 or higher recommended)
-- npm, yarn, or pnpm
-
-### Installation
-
-Dependencies are already installed. If you need to reinstall:
+Requires Node.js 18 or higher.
 
 ```bash
 npm install
-```
-
-## 📝 Available Scripts
-
-### Development Mode
-
-Start the development server with hot module replacement:
-
-```bash
 npm run dev
 ```
 
-The site will open at `http://localhost:3000` with automatic reloading.
+The dev server runs at `http://localhost:3000` and opens automatically.
 
-### Production Build
+## Scripts
 
-Build optimized, minified files for production:
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Dev server with hot reload |
+| `npm run build` | Production build into `dist/` (minified) |
+| `npm run build:dev` | Unminified build with source maps |
+| `npm run build:dev-watch` | Same as `build:dev`, rebuilding on change |
+| `npm run preview` | Serve the production build at `http://localhost:4173` |
 
-```bash
-npm run build
-```
+## Architecture
 
-Output will be in the `dist/` folder with:
-- Minified and bundled JavaScript
-- Minified and bundled CSS
-- Optimized HTML files
+### Scripts
 
-### Development Build
+Every page loads `src/scripts/main.ts`, which calls the `init*` function of each module on `DOMContentLoaded`. Modules only act when their markup exists on the page, so the same bundle works on all pages.
 
-Build without minification (useful for debugging):
+- `main.ts` also swaps the `js-loading` class on `<html>` for `js-ready`. Each page hides `<body>` until then to avoid a flash of unstyled content.
+- `modules/animations.ts` initializes the homepage animations (header, in-view, decors, "this is me" and its modals, recent work, "me", robot).
+- `modules/animations/` holds the per-section and per-project GSAP code (`project-page`, `smart-fridge`, `elearning`, `process-screens`, `prototype-with-mobile-screens`, `screen-iterations`, ...).
+- Other modules: `slider`, `tablet-slider`, `video`, `scrollable-mobile-image`, `mobile-fullscreen-image`, `project-poster-modal`, `robot-background-width`, `scroll-to`, `toggleable-section`, `navigation`.
 
-```bash
-npm run build:dev
-```
+To add a module, create it in `src/scripts/modules/`, export an `init...()` function and call it from `main.ts` (or from `animations.ts` for homepage animations).
 
-### Preview Production Build
+### Styles
 
-Preview the production build locally:
+Every page links `src/styles/main.scss`, which forwards `_variables` and `_mixins` and then `@use`s `_base`, each partial in `components/`, and `_project-specific`.
 
-```bash
-npm run preview
-```
+To add a component style:
 
-## 🎨 Working with SASS
+1. Create `src/styles/components/_my-component.scss`.
+2. Add `@use 'components/my-component';` to `main.scss`.
 
-### Adding New Stylesheets
-
-1. Create a new `.scss` file in `src/styles/` or `src/styles/components/`
-2. Import it in `src/styles/main.scss`:
+Available mixins (`_mixins.scss`): `flex-center`, `mobile`, `tablet`, `desktop`, `smaller-desktop`, `transition(...)`, `font-size($size, $weight, $line-height)`, `roundBox`, and the `rem($px)` function. Colors, font and breakpoints are defined in `_variables.scss`.
 
 ```scss
-@use 'components/your-component';
-```
+@use '../variables' as *;
+@use '../mixins' as *;
 
-### Using Variables and Mixins
-
-Variables and mixins are automatically available in all SASS files:
-
-```scss
 .my-component {
-  color: $primary-color;
-  padding: $spacing-md;
+  color: $text-color;
   @include flex-center;
-  @include transition(opacity, transform);
+  @include mobile {
+    flex-direction: column;
+  }
 }
 ```
 
-## 💻 Working with TypeScript
+### Path aliases
 
-### Adding New Scripts
+Defined in `vite.config.ts` and `tsconfig.json`:
 
-1. Create new `.ts` files in `src/scripts/modules/` or `src/scripts/utils/`
-2. Import them in `src/scripts/main.ts` or other modules:
+- `@` -> `src`
+- `@styles` -> `src/styles`
+- `@scripts` -> `src/scripts`
 
-```typescript
-import { myFunction } from './modules/my-module';
-```
+### Static assets
 
-### Path Aliases
+Files in `public/` are served from the site root and copied to `dist/`. Reference them with absolute paths, e.g. `/images/project/cooking/...`.
 
-You can use path aliases for cleaner imports:
+## Adding a page
 
-```typescript
-import { log } from '@/scripts/utils/logger';
-import '@styles/components/my-component.scss';
-```
+1. Create the HTML file in the project root. Copy the `<head>` (loading-state script and style, `main.scss` link, fonts) and the `<script type="module" src="/src/scripts/main.ts">` tag from an existing page.
+2. Register it in `build.rollupOptions.input` in `vite.config.ts`:
 
-## 🌐 Adding More HTML Pages
-
-To add new pages (e.g., about.html, portfolio.html):
-
-1. Create the HTML file in the root directory
-2. Update `vite.config.ts` to include the new entry point:
-
-```typescript
+```ts
 input: {
   main: resolve(__dirname, 'index.html'),
-  about: resolve(__dirname, 'about.html'),
-  portfolio: resolve(__dirname, 'portfolio.html'),
+  myPage: resolve(__dirname, 'my-page.html'),
 }
 ```
 
-Each page will get the same bundled CSS and JS files.
+HTML files that are not listed in `input` are not included in the production build.
 
-## 📦 Build Output
+## Build Output
 
-After running `npm run build`, the `dist/` folder contains:
+`npm run build` writes to `dist/` with a relative base (`./`). Code splitting is disabled, so each page entry gets its own JS file and the CSS is emitted separately:
 
 ```
 dist/
-├── index.html
-├── assets/
-│   ├── css/
-│   │   └── main.css       # Single bundled CSS file
-│   └── js/
-│       └── main.js        # Single bundled JS file
+├── *.html
+└── assets/
+    ├── css/        # Bundled CSS
+    ├── js/         # One JS file per page entry (main.js, elearning.js, ...)
+    └── ...         # Other assets
 ```
 
-All HTML files reference these single CSS and JS files.
+## Documentation
 
-## 🎯 Next Steps
-
-1. **Replace example content** - Update index.html with your actual portfolio content
-2. **Import Figma designs** - Convert your Figma designs to HTML/SASS
-3. **Add more pages** - Create additional pages as needed (about, portfolio, contact)
-4. **Customize styles** - Modify SASS variables and components to match your design
-5. **Add interactivity** - Enhance TypeScript modules with your desired functionality
-6. **Optimize assets** - Add images to `public/` folder for automatic optimization
-
-## 📚 Technologies Used
-
-- **Vite 5.4** - Build tool and dev server
-- **TypeScript 5.6** - Type-safe JavaScript
-- **SASS 1.79** - CSS preprocessor
-
-## 🤝 Support
-
-For issues or questions, refer to:
-- [Vite Documentation](https://vitejs.dev/)
-- [TypeScript Documentation](https://www.typescriptlang.org/)
-- [SASS Documentation](https://sass-lang.com/)
-
----
-
-Happy coding! 🎨✨
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
+- [GSAP](https://gsap.com/docs/v3/)
