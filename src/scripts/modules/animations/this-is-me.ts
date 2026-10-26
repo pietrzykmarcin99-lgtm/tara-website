@@ -299,12 +299,12 @@ export function initArrowMobileThisIsMeScrollAnimation() {
 
     const container = document.querySelector<HTMLElement>('.this-is-me__arrow-mobile');
     const svg = container?.querySelector<SVGSVGElement>('svg');
-    const button = container?.querySelector<HTMLElement>('.this-is-me__mobile-arrow-btn');
+    // const button = container?.querySelector<HTMLElement>('.this-is-me__mobile-arrow-btn');
     const maskPaths = Array.from(svg?.querySelectorAll<SVGPathElement>('mask path') ?? []);
 
     const nextHeading = document.querySelector('.lets-connect h2.mobile-only')
 
-    if (!container || !button || maskPaths.length === 0) {
+    if (!container || maskPaths.length === 0) {
       return;
     }
 
@@ -330,7 +330,7 @@ export function initArrowMobileThisIsMeScrollAnimation() {
       if (arrowHeadMasks.length > 0) {
         gsap.set(arrowHeadMasks, { drawSVG: '0% 100%' });
       }
-      gsap.set(button, { '--this-is-me-mobile-btn-fill': 1 } as gsap.TweenVars);
+      // gsap.set(button, { '--this-is-me-mobile-btn-fill': 1 } as gsap.TweenVars);
       return;
     }
 
@@ -338,7 +338,7 @@ export function initArrowMobileThisIsMeScrollAnimation() {
     if (arrowHeadMasks.length > 0) {
       gsap.set(arrowHeadMasks, { drawSVG: '0% 0%' });
     }
-    gsap.set(button, { '--this-is-me-mobile-btn-fill': 0 } as gsap.TweenVars);
+    // gsap.set(button, { '--this-is-me-mobile-btn-fill': 0 } as gsap.TweenVars);
 
     gsap.set(nextHeading, { scale: 0.8, opacity: 0 });
     // Scroll progress is split into four clear steps:
@@ -358,23 +358,30 @@ export function initArrowMobileThisIsMeScrollAnimation() {
 
     timeline
       .to(mainMask, {
-        drawSVG: `0% ${MOBILE_ARROW_SPLIT_PERCENT}%`,
-        duration: 1,
-        ease: 'none'
-      })
-      .to(
-        button,
-        {
-          '--this-is-me-mobile-btn-fill': 1,
-          duration: 0.45,
-          ease: 'none'
-        } as gsap.TweenVars
-      )
-      .to(mainMask, {
         drawSVG: '0% 100%',
         duration: 1,
         ease: 'none'
       });
+
+    // timeline
+    //   .to(mainMask, {
+    //     drawSVG: `0% ${MOBILE_ARROW_SPLIT_PERCENT}%`,
+    //     duration: 1,
+    //     ease: 'none'
+    //   })
+    //   .to(
+    //     button,
+    //     {
+    //       '--this-is-me-mobile-btn-fill': 1,
+    //       duration: 0.45,
+    //       ease: 'none'
+    //     } as gsap.TweenVars
+    //   )
+    //   .to(mainMask, {
+    //     drawSVG: '0% 100%',
+    //     duration: 1,
+    //     ease: 'none'
+    //   });
 
     if (arrowHeadMasks.length > 0) {
       timeline.to(arrowHeadMasks, {

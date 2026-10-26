@@ -13,7 +13,7 @@
   }
 
   &__left-container {
-    padding: 65px 0 0 0;
+    padding: 35px 0 0 0;
     position: relative;
   }
 
@@ -24,9 +24,9 @@
     cursor: pointer;
 
     @include smaller-desktop {
-      height: 400px;
-      width: 192px;
       border-radius: 38px;
+      height: 480px;
+      width: 235px;
     }
   }
 
@@ -36,6 +36,11 @@
     width: max-content;
     left: calc(100% + 100px);
     top: -86px;
+
+    @include smaller-desktop {
+      left: calc(100% + 140px);
+      top: -76px;
+    }
 
     p {
       color: $color-pink-text2;
@@ -368,7 +373,7 @@
         border-radius: 54px;
 
         @include smaller-desktop {
-          height: 380px;
+          // height: 380px;
           border-radius: 36px;
         }
       }
@@ -387,8 +392,8 @@
         top: 0px;
 
         @include smaller-desktop {
-          left: calc(100% + 10px);
-          top: 0px;
+          left: calc(100% + 40px);
+          top: -50px;
         }
       }
 

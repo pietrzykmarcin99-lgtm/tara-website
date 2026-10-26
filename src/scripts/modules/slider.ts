@@ -1,3 +1,10 @@
+import { consumeHomepageSliderTarget } from './homepage-scroll';
+
+function findItemPathname(item: HTMLElement): string | null {
+	const anchor = item.querySelector<HTMLAnchorElement>('.slider__modal a[href]');
+	return anchor ? new URL(anchor.href, window.location.origin).pathname : null;
+}
+
 export function initSlider() {
 	const slider = document.querySelector<HTMLElement>('.slider.desktop-only');
 
@@ -36,10 +43,16 @@ export function initSlider() {
 
 	const sliderItems = Array.from(track.querySelectorAll<HTMLElement>('.slider__item'));
 	const originalItemCount = items.length;
-	const initialOriginalIndex = items.findIndex((item) => {
-		const title = item.querySelector('h3')?.textContent?.trim().toLowerCase();
-		return title === 'e-learning course';
-	});
+	const restoredTargetPathname = consumeHomepageSliderTarget();
+	const restoredIndex = restoredTargetPathname
+		? items.findIndex((item) => findItemPathname(item) === restoredTargetPathname)
+		: -1;
+	const initialOriginalIndex = restoredIndex >= 0
+		? restoredIndex
+		: items.findIndex((item) => {
+			const title = item.querySelector('h3')?.textContent?.trim().toLowerCase();
+			return title === 'e-learning course';
+		});
 
 	let currentIndex = cloneCount + (initialOriginalIndex >= 0 ? initialOriginalIndex : 0);
 	let isAnimating = false;

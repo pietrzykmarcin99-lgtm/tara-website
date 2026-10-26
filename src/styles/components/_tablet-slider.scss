@@ -110,7 +110,7 @@
     }
 
     &--right {
-      right: calc(var(--tablet-slider-arrow-offset) * -1);
+      right: calc(var(--tablet-slider-arrow-offset) * -1 - 6px);
     }
 
     > svg {
@@ -121,15 +121,23 @@
   }
 
   @include smaller-desktop {
-    --tablet-slider-width: min(500px, calc(100vw - 120px));
-    --tablet-slider-height: min(450px, calc((100vw - 120px) * 1.46));
+    --tablet-slider-width: min(540px, calc(100vw - 120px));
+    --tablet-slider-height: min(420px, calc((100vw - 120px) * 1.46));
     --tablet-slider-arrow-offset: 40px;
 
     transform: translateX(-100px);
+
+    margin: 20px auto 100px;
+
+    &__image {
+      object-position: top;
+    }
+
   }
 
   @include mobile {
     --tablet-slider-width: 100%;
+    --tablet-slider-height: min(500px, calc((100vw - 120px) * 1.46));
     transform: translateX(0);
     margin: 0 auto 48px;
 
@@ -143,6 +151,7 @@
     .tablet-slider__image {
       height: 100%;
       object-fit: scale-down;
+      object-position: center;
     }
 
     &__arrow {
@@ -163,6 +172,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include smaller-desktop {
+      top: -20px;
+    }
 
     > p {
       @include font-size(26px, 400);
@@ -245,10 +258,10 @@
       height: 343px;
 
       @include smaller-desktop {
-        top: 37px;
-        left: 6px;
-        width: 487px;
-        height: 274px;
+        top: 12px;
+        left: 7px;
+        width: 526px;
+        height: 297px;
       }
 
       @include mobile {
@@ -335,6 +348,9 @@
 
 
   &--green {
+    @include smaller-desktop {
+    --tablet-slider-height: min(450px, calc((100vw - 120px) * 1.46));
+    }
     .tablet-slider {
       &__arrow {
         top: 40%;

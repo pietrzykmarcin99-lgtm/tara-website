@@ -41,7 +41,7 @@
       text-decoration: none;
       transition: all 0.2s ease-in-out;
 
-      &:hover {
+      &:not(.header__left-mobile-minimenu):hover {
         transform: scale(1.05);
         background-color: $line-gray-color-light;
       }
@@ -61,6 +61,10 @@
           position: absolute;
           top: calc(100% + 3px);
           width: 100%;
+
+          > a:hover {
+            background-color: $line-gray-color-light;
+          }
         }
       }
     }

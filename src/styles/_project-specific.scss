@@ -18,6 +18,11 @@
       flex-shrink: 1;
     }
 
+    &__to-prototype-button {
+      background-color: $color-violet-light;
+    }
+
+
     &__image {
       align-self: flex-end;
       @include mobile {
@@ -69,6 +74,12 @@
     &__my-role {
       flex-shrink: 1;
     }
+
+    
+    &__to-prototype-button {
+      background-color: $color-orange5;
+    }
+
 
     &__image {
       align-self: center;
@@ -132,6 +143,10 @@
 
     &__my-role {
       flex-shrink: 1;
+    }
+
+    &__to-prototype-button {
+      background-color: $color-teal2;
     }
 
     &__image {

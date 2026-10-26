@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { log } from '../utils/logger';
+import { initHomepageScrollRestoration } from './homepage-scroll';
 
 const navLinkSelector = '.header__link[data-nav]';
 const headerSelector = '.header';
@@ -114,7 +115,7 @@ function resetInitialScrollPosition(): void {
     history.scrollRestoration = 'manual';
   }
 
-  if (window.location.hash) {
+  if (initHomepageScrollRestoration() || window.location.hash) {
     return;
   }
 

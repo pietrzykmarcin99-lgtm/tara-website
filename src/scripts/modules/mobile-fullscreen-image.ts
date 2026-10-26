@@ -86,6 +86,7 @@ function openFullscreen(img: HTMLImageElement): void {
     overlay.classList.remove('active');
     setTimeout(() => {
       overlay.remove();
+      document.body.style.overflow = '';
     }, 300);
   };
 
@@ -110,14 +111,4 @@ function openFullscreen(img: HTMLImageElement): void {
 
   // Prevent body scroll when fullscreen is open
   document.body.style.overflow = 'hidden';
-  
-  // Restore scroll on close
-  const restoreScroll = (): void => {
-    document.body.style.overflow = '';
-  };
-  overlay.addEventListener('transitionend', () => {
-    if (!overlay.classList.contains('active')) {
-      restoreScroll();
-    }
-  });
 }

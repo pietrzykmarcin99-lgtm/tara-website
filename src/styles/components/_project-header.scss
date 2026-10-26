@@ -55,7 +55,7 @@
     }
 
     @include mobile {
-      padding: 10px 0;
+      padding: 10px 0 20px;
       max-width: unset;
     }
 
@@ -213,6 +213,7 @@
       display: flex;
       svg {
         margin: 0 8px 0 0;
+        flex-shrink: 0;
       }
     }
   }

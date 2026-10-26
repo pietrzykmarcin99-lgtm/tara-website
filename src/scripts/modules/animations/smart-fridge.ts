@@ -11,14 +11,14 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
     const prototypeWithMobileScreensArrowSvg = document.querySelector<HTMLElement>('.prototype-with-mobile-screens__arrow svg');
     const maskPaths = Array.from(prototypeWithMobileScreensArrowSvg?.querySelectorAll<SVGPathElement>('mask path') ?? []);
     const video = document.querySelector<HTMLVideoElement>('.prototype-with-mobile-screens__video');
-    const decor1 = document.querySelector<HTMLVideoElement>('.prototype-with-mobile-screens__decor-1');
-    const decor2 = document.querySelector<HTMLVideoElement>('.prototype-with-mobile-screens__decor-2');
+    // const decor1 = document.querySelector<HTMLVideoElement>('.prototype-with-mobile-screens__decor-1');
+    // const decor2 = document.querySelector<HTMLVideoElement>('.prototype-with-mobile-screens__decor-2');
   
     gsap.set(maskPaths, { drawSVG: '0% 0%' });
     gsap.set(prototypeWithMobileScreensText, { scale: 0.8, opacity: 0 });
     gsap.set(video, { opacity: 0, scale: 1});
-    gsap.set(decor1, { opacity: 0, scale: 0.9});
-    gsap.set(decor2, { opacity: 0, scale: 0.9});
+    // gsap.set(decor1, { opacity: 0, scale: 0.9});
+    // gsap.set(decor2, { opacity: 0, scale: 0.9});
   
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -63,18 +63,18 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
       duration: 0.4,
       ease: 'none'
     })
-    .to(decor1, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.4,
-      ease: 'none'
-    })
-    .to(decor2, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.4,
-      ease: 'none'
-    })
+    // .to(decor1, {
+    //   scale: 1,
+    //   opacity: 1,
+    //   duration: 0.4,
+    //   ease: 'none'
+    // })
+    // .to(decor2, {
+    //   scale: 1,
+    //   opacity: 1,
+    //   duration: 0.4,
+    //   ease: 'none'
+    // })
   }
   
 

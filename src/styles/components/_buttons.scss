@@ -3,7 +3,7 @@
 
 .btn {
   border: none;
-  padding: 6px 30px;
+  padding: 10px 30px;
   border-radius: 30px;
   @include font-size(rem(20px), 500);
   color: $color-white;
@@ -11,6 +11,7 @@
   transition: background-color 0.3s ease;
   position: relative;
   text-decoration: none;
+  display: inline-block;
 
   &--pink {
     background-color: $color-pink-light;

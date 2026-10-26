@@ -177,6 +177,7 @@
     small {
       @include font-size(rem(20px), 300);
       margin: 0 0 8px;
+      display: inline-block;
     }
   }
 
